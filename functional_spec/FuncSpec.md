@@ -304,7 +304,7 @@ _**Dependencies On Other Requirements**_
 
 _**References:**_
 
-  * ““Every Day is Tag Day™” — Is Your Pet Protected?”, American Humane Association, 2019. [Online]. Available:
+  * ““Every Day is Tag Day” — Is Your Pet Protected?”, American Humane Association, 2019. [Online]. Available:
   [https://www.americanhumane.org/blog/every-day-is-tag-day-is-your-pet-protected/.][Reference1] 
   [Accessed: 24 - Nov - 2019].
 
