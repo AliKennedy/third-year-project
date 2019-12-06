@@ -59,9 +59,9 @@
    Programming of the Arduino Board:
 
     GPS **- Ali**  
-    Resistor **- Ethan** 
-    Accelerometer **- Ali** 
-    Networking **- Ethan**
+    Resistor **- Ethan**  
+    Accelerometer **- Ali**  
+    Networking **- Ethan**  
 
  **Backend:**
 
