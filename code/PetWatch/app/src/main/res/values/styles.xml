@@ -5,8 +5,9 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorButtonBackground">@color/colorButtonBackground</item>
-        <item name="colorWords">@color/colorWords</item>
+        <item name="android:colorButtonNormal">@color/colorButtonBackground</item>
+        <item name ="editTextColor">@color/colorWords</item>
+        <item name="colorError">@color/colorWarning</item>
     </style>
 
 </resources>

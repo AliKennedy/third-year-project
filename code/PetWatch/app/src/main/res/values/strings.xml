@@ -5,4 +5,8 @@
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="textview">TextView</string>
+    <string name="e_mail_address_here">E-mail address here</string>
+    <string name="password">Password</string>
+    <string name="username_or_password_is_incorrect">Username or Password is Incorrect</string>
+    <string name="PetWatch">PetWatch</string>
 </resources>
