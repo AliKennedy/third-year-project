@@ -17,7 +17,7 @@ public class SignUpScreen extends AppCompatActivity
     private EditText createPassword;
     private EditText confirmPassword;
 
-    private Button signUp;
+    private Button buttonSignUp;
     private TextView passwordNotMatch;
 
     @Override
@@ -33,22 +33,24 @@ public class SignUpScreen extends AppCompatActivity
         createPassword = (EditText)findViewById(R.id.passwordCreate);
         confirmPassword = (EditText)findViewById(R.id.confirmPassword);
 
-        signUp = (Button)findViewById(R.id.buttonSignUp);
+        buttonSignUp = (Button)findViewById(R.id.buttonSignUp);
         passwordNotMatch = (TextView)findViewById(R.id.passwordNotMatch);
 
-        signUp.setOnClickListener(new View.OnClickListener()
+        buttonSignUp.setOnClickListener(new View.OnClickListener()
         {
-            @Override
-            public void Onclick(View view)
-            {
-                if (passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString()) //&& (emailAlreadyTaken(emailAddress.getText().toString()) != true))
-                    createAccount(firstName.getText().toString(), lastName.getText().toString(), petsName.getText().toString(), emailAddress.getText().toString(), confirmPassword.getText().toString());
-                else
+
+                @Override
+                public void onClick(View view)
                 {
-                    passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString());
-                    //emailAlreadyTaken(emailAddress.getText().toString());
+                    if (passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString())) //&& (emailAlreadyTaken(emailAddress.getText().toString()) != true))
+                        createAccount(firstName.getText().toString(), lastName.getText().toString(), petsName.getText().toString(), emailAddress.getText().toString(), confirmPassword.getText().toString());
+                    else
+                    {
+                        passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString());
+                        //emailAlreadyTaken(emailAddress.getText().toString());
+                    }
                 }
-            }
+
         });
     }
 
@@ -63,7 +65,7 @@ public class SignUpScreen extends AppCompatActivity
             return true;
         else
         {
-            TextView warning = SignInScreen.this.passwordNotMatch;
+            TextView warning = SignUpScreen.this.passwordNotMatch;
             warning.setVisibility(View.VISIBLE);
             return false;
         }
