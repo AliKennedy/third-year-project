@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignUpScreen extends AppCompatActivity
 {
@@ -19,6 +20,10 @@ public class SignUpScreen extends AppCompatActivity
 
     private Button buttonSignUp;
     private TextView passwordNotMatch;
+
+    DatabaseHelper mDatabaseHelper;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +41,8 @@ public class SignUpScreen extends AppCompatActivity
         buttonSignUp = (Button)findViewById(R.id.buttonSignUp);
         passwordNotMatch = (TextView)findViewById(R.id.passwordNotMatch);
 
+        mDatabaseHelper = new DatabaseHelper(this);
+
         buttonSignUp.setOnClickListener(new View.OnClickListener()
         {
 
@@ -43,8 +50,13 @@ public class SignUpScreen extends AppCompatActivity
                 public void onClick(View view)
                 {
                     if (passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString())) //&& (emailAlreadyTaken(emailAddress.getText().toString()) != true))
-                        createAccount(firstName.getText().toString(), lastName.getText().toString(), petsName.getText().toString(), emailAddress.getText().toString(), confirmPassword.getText().toString());
-                    else
+                    {
+                        if ((firstName.getText().toString().length() != 0) && (lastName.getText().toString().length() != 0) && (petsName.getText().toString().length() != 0) && (emailAddress.getText().toString().length() != 0))
+                            createAccount(firstName.getText().toString(), lastName.getText().toString(), petsName.getText().toString(), emailAddress.getText().toString(), confirmPassword.getText().toString(), 1);
+                        else
+                            toastMessage("You must fill in all parameters!");
+                    }
+                        else
                     {
                         passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString());
                         //emailAlreadyTaken(emailAddress.getText().toString());
@@ -54,9 +66,21 @@ public class SignUpScreen extends AppCompatActivity
         });
     }
 
-    public void createAccount(String fName, String lName, String pName, String eAddress, String password)
+    public void createAccount(String fName, String lName, String pName, String eAddress, String password, Integer ardID)
     {
-        //Database query here
+        boolean db2 = mDatabaseHelper.addData(fName, "fName");
+        boolean db3 = mDatabaseHelper.addData(lName, "sName");
+        boolean db4 = mDatabaseHelper.addData(pName, "pName");
+        boolean db5 = mDatabaseHelper.addData(eAddress, "eMail");
+        boolean db6 = mDatabaseHelper.addData(password, "pWord");
+        boolean db7 = mDatabaseHelper.addData(ardID.toString(), "ardID");
+
+        if ((db2) && (db3) && (db4) && (db5) && (db6) && (db7))
+            toastMessage("Hoorraayy it Works");
+        else
+            toastMessage("I broke it");
+
+
     }
 
     public boolean passwordMatch(String password, String otherPassword)
@@ -69,6 +93,11 @@ public class SignUpScreen extends AppCompatActivity
             warning.setVisibility(View.VISIBLE);
             return false;
         }
+    }
+
+    private void toastMessage(String message)
+    {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 // NEED DATABASE SETUP TO USE THIS METHOD

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class MainActivity extends AppCompatActivity
+public class StartUpScreen extends AppCompatActivity
 {
 
     private Button signInButton;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         {
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, SignInScreen.class);
+                Intent intent = new Intent(StartUpScreen.this, SignInScreen.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, SignUpScreen.class);
+                Intent intent = new Intent(StartUpScreen.this, SignUpScreen.class);
                 startActivity(intent);
             }
         });
