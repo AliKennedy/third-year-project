@@ -20,4 +20,5 @@
     <string name="speed">Speed</string>
     <string name="map">Map</string>
     <string name="log">Log</string>
+    <string name="settings">Settings</string>
 </resources>

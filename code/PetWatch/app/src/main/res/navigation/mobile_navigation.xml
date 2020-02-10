@@ -28,4 +28,10 @@
         android:name="ca326.petwatch.petwatch.ui.log.LogFragment"
         android:label="@string/log"
         tools:layout="@layout/fragment_log" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="ca326.petwatch.petwatch.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
