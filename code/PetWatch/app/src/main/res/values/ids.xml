@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="navigation_panic" type="id">fragment_panic.xml</item>
+    <item name="fragment_panic.xml" type="id"></item>
 </resources>
