@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_panic">
+    app:startDestination="@+id/navigation_map">
 
     <fragment
         android:id="@+id/navigation_panic"
@@ -22,4 +22,10 @@
         android:name="ca326.petwatch.petwatch.ui.map.MapFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/navigation_log"
+        android:name="ca326.petwatch.petwatch.ui.log.LogFragment"
+        android:label="@string/log"
+        tools:layout="@layout/fragment_log" />
 </navigation>

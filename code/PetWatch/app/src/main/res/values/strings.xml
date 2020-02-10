@@ -19,4 +19,5 @@
     <string name="panic">Panic</string>
     <string name="speed">Speed</string>
     <string name="map">Map</string>
+    <string name="log">Log</string>
 </resources>
