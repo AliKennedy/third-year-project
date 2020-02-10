@@ -16,15 +16,15 @@ import ca326.petwatch.petwatch.R;
 
 public class PanicFragment extends Fragment {
 
-    private PanicViewModel homeViewModel;
+    private PanicViewModel panicViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
+        panicViewModel =
                 ViewModelProviders.of(this).get(PanicViewModel.class);
         View root = inflater.inflate(R.layout.fragment_panic, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        final TextView textView = root.findViewById(R.id.text_panic);
+        panicViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_speed"
-        android:name="ca326.petwatch.petwatch.ui.dashboard.DashboardFragment"
+        android:name="ca326.petwatch.petwatch.ui.speed.SpeedFragment"
         android:label="@string/speed"
         tools:layout="@layout/fragment_speed" />
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="ca326.petwatch.petwatch.ui.notifications.NotificationsFragment"
+        android:name="ca326.petwatch.petwatch.ui.map.MapFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map" />
 </navigation>

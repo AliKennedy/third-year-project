@@ -1,4 +1,4 @@
-package ca326.petwatch.petwatch.ui.notifications;
+package ca326.petwatch.petwatch.ui.speed;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import ca326.petwatch.petwatch.R;
 
-public class NotificationsFragment extends Fragment {
+public class SpeedFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private SpeedViewModel speedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_map, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(this, new Observer<String>() {
+        speedViewModel =
+                ViewModelProviders.of(this).get(SpeedViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_speed, container, false);
+        final TextView textView = root.findViewById(R.id.text_speed);
+        speedViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
