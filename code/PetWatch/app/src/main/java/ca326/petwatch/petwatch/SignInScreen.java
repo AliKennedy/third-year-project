@@ -45,12 +45,12 @@ public class SignInScreen extends AppCompatActivity
         // if statement used for testing
         if ((userName.equals("Ethan")) && (userPassword.equals("ethan")))
         {
-            Intent intent = new Intent(SignInScreen.this, LoadingScreen.class);
+            Intent intent = new Intent(SignInScreen.this, Main2Activity.class);
             startActivity(intent);
         }
         else if ((userName.equals("Ali")) && (userPassword.equals("ali")))
         {
-            Intent intent = new Intent(SignInScreen.this, LoadingScreen.class);
+            Intent intent = new Intent(SignInScreen.this, Main2Activity.class);
             startActivity(intent);
         }
         else

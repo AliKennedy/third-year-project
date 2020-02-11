@@ -9,69 +9,27 @@ DFRobot_SIM808 sim808(&mySerial);//Connect RX,TX,PWR,
 
 
 void setup() {
+  boolean DEBUG = true;
   mySerial.begin(9600);
   Serial.begin(9600);
 
-  //******** Initialize sim808 module *************
-  while(!sim808.init()) { 
-      delay(1000);
-      Serial.print("Sim808 init error\r\n");
-  }
-
-  //************* Turn on the GPS power************
-  if( sim808.attachGPS())
-      Serial.println("Open the GPS power success");
-  else 
-      Serial.println("Open the GPS power failure");
-  
+ sendData("AT+CCID",3000,DEBUG);
+ sendData("AT+CREG?",3000,DEBUG);
+ sendData("AT+CGATT=1",1000,DEBUG);
+ sendData("AT+CGACT=1,1",1000,DEBUG);
+ sendData("AT+CSTT=CMNET",3000,DEBUG);
+ sendData("AT+CIICR",1000,DEBUG);
+ sendData("AT+CIFSR",1000,DEBUG);
+ sendData("AT+CDNSGIP=\"www.sim.com\"",1000,DEBUG);
+ sendData("AT+CDNSGIP=\"a b c d e f\"",1000,DEBUG);
+ sendData("AT+CIPSTART=\"TCP\",\"WWW.SIM.COM\",80",5000,DEBUG);
+ delay(10000);
+ sendData("AT+CIPSEND=6",1000,DEBUG);
+ sendData("123456",1000,DEBUG);
+ delay(2000);
+ sendData("AT+CIPCLOSE",1000,DEBUG); 
 }
 
 void loop() {
-   //************** Get GPS data *******************
-   if (sim808.getGPS()) {
-    Serial.print(sim808.GPSdata.year);
-    Serial.print("/");
-    Serial.print(sim808.GPSdata.month);
-    Serial.print("/");
-    Serial.print(sim808.GPSdata.day);
-    Serial.print(" ");
-    Serial.print(sim808.GPSdata.hour);
-    Serial.print(":");
-    Serial.print(sim808.GPSdata.minute);
-    Serial.print(":");
-    Serial.print(sim808.GPSdata.second);
-    Serial.print(":");
-    Serial.println(sim808.GPSdata.centisecond);
-    
-    Serial.print("latitude :");
-    Serial.println(sim808.GPSdata.lat,6);
-    
-    sim808.latitudeConverToDMS();
-    Serial.print("latitude :");
-    Serial.print(sim808.latDMS.degrees);
-    Serial.print("\^");
-    Serial.print(sim808.latDMS.minutes);
-    Serial.print("\'");
-    Serial.print(sim808.latDMS.seconeds,6);
-    Serial.println("\"");
-    Serial.print("longitude :");
-    Serial.println(sim808.GPSdata.lon,6);
-    sim808.LongitudeConverToDMS();
-    Serial.print("longitude :");
-    Serial.print(sim808.longDMS.degrees);
-    Serial.print("\^");
-    Serial.print(sim808.longDMS.minutes);
-    Serial.print("\'");
-    Serial.print(sim808.longDMS.seconeds,6);
-    Serial.println("\"");
-    
-    Serial.print("speed_kph :");
-    Serial.println(sim808.GPSdata.speed_kph);
-    Serial.print("heading :");
-    Serial.println(sim808.GPSdata.heading);
-
-    //************* Turn off the GPS power ************
-    sim808.detachGPS();
-  }
-
+ 
 }
