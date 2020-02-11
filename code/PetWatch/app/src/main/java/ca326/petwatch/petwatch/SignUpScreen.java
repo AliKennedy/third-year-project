@@ -1,28 +1,34 @@
 package ca326.petwatch.petwatch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SignUpScreen extends AppCompatActivity
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class SignUpScreen extends AppCompatActivity implements View.OnClickListener
 {
     private EditText firstName;
     private EditText lastName;
     private EditText petsName;
-    private EditText emailAddress;
+    public EditText emailAddress;
     private EditText createPassword;
-    private EditText confirmPassword;
+    public EditText confirmPassword;
 
     private Button buttonSignUp;
     private TextView passwordNotMatch;
 
-    DatabaseHelper mDatabaseHelper;
-
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -40,25 +46,70 @@ public class SignUpScreen extends AppCompatActivity
         buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
         passwordNotMatch = (TextView) findViewById(R.id.passwordNotMatch);
 
-        mDatabaseHelper = new DatabaseHelper(this);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+        buttonSignUp.setOnClickListener(this);
+
+
+
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        registerUser(firebaseAuth, emailAddress.getText().toString().trim(), confirmPassword.getText().toString().trim());
+
     }
 
 
+    public void registerUser(FirebaseAuth fb, final String eAddress, final String pWord)
+    {
+        String fName = firstName.getText().toString().trim();
+        String lName = lastName.getText().toString().trim();
+        String pName = petsName.getText().toString().trim();
+        //String eAddress = emailAddress.getText().toString().trim();
+        //String pWord = confirmPassword.getText().toString().trim();
+
+        if ((fName.equals("")) || (lName.equals("")) || (pName.equals("")) || (eAddress.equals("")) || (pWord.equals("")))
+        {
+            toastMessage("Not all sections are filled!");
+            //Stops function from executing further
+        }
+        //Everything is valid
+        else
+        {
+
+            fb.createUserWithEmailAndPassword(eAddress, pWord)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
+                    {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task)
+                        {
+
+                            if (task.isSuccessful())
+                            {
+
+                                // Sign in success, update UI with the signed-in user's information
+                                toastMessage("It worked!!");
+
+                            }
+
+                                // If sign in fails, display a message to the user.
+                            toastMessage(eAddress + " " + pWord);
+
+                            // ...
+                        }
+                    });
+        }
+
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private void toastMessage(String message)
+    {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
 
 //        buttonSignUp.setOnClickListener(new View.OnClickListener()
@@ -113,10 +164,7 @@ public class SignUpScreen extends AppCompatActivity
 //        }
 //    }
 //
-//    private void toastMessage(String message)
-//    {
-//        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-//    }
+
 //
 //// NEED DATABASE SETUP TO USE THIS METHOD
 ////    public boolean emailAlreadyTaken(String email)
