@@ -9,6 +9,7 @@ DFRobot_SIM808 sim808(&mySerial);//Connect RX,TX,PWR,
 
 
 void setup() {
+  boolean DEBUG = true;
   mySerial.begin(9600);
   Serial.begin(9600);
 
