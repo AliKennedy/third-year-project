@@ -3,6 +3,7 @@ package ca326.petwatch.petwatch;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -110,7 +111,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
                                 if (task.isSuccessful())
                                 {
                                     // Sign in success, update UI with the signed-in user's information
-                                    toastMessage("It worked!!");
+                                    //toastMessage("It worked!!");
                                     String uid = fb.getUid();
                                     docRef = db.collection("userDetails").document(uid);
 
@@ -120,7 +121,9 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
                                                 @Override
                                                 public void onSuccess(Void aVoid)
                                                 {
-                                                    toastMessage("Success combining two databases");
+                                                    toastMessage("Successfully created account");
+                                                    Intent intent = new Intent(SignUpScreen.this, SignInScreen.class);
+                                                    startActivity(intent);
                                                 }
                                             })
                                             .addOnFailureListener(new OnFailureListener()
@@ -128,7 +131,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
                                                 @Override
                                                 public void onFailure(@NonNull Exception e)
                                                 {
-                                                    toastMessage("Error");
+                                                    toastMessage("Error Creating Account. Please Try Again Later");
                                                 }
                                             });
 
@@ -139,10 +142,12 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
                                     if (task.getException() instanceof FirebaseAuthUserCollisionException)
                                     {
                                         toastMessage("Email address already taken!");
+                                        Intent intent = new Intent(SignUpScreen.this, SignInScreen.class);
+                                        startActivity(intent);
                                     }
                                     else
                                     {
-                                        toastMessage("Blank!");
+                                        toastMessage("Error Creating Account. Please Try Again Later.");
                                     }
                                 }
 
@@ -155,7 +160,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
             }
             else
             {
-                toastMessage("Details entered Incorrectly.");
+                toastMessage("Passwords do not match.");
             }
 
         }
