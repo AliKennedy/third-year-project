@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/PETWATCH_GOOGLE_MAPS_API_KEY"/>
+
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"></activity>
@@ -27,5 +32,9 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
 
 </manifest>

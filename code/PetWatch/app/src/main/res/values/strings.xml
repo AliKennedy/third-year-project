@@ -1,4 +1,5 @@
 <resources>
+    //startup
     <string name="app_name">PetWatch</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
@@ -10,10 +11,11 @@
     <string name="username_or_password_is_incorrect">Username or Password is Incorrect</string>
     <string name="PetWatch">PetWatch</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+<!--    <string name="title_home">Home</string>-->
+<!--    <string name="title_dashboard">Dashboard</string>-->
+<!--    <string name="title_notifications">Notifications</string>-->
 
+    //fragments
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="panic">Panic</string>
@@ -21,4 +23,7 @@
     <string name="map">Map</string>
     <string name="log">Log</string>
     <string name="settings">Settings</string>
+
+    //Google Maps api
+    <string name="PETWATCH_GOOGLE_MAPS_API_KEY">AIzaSyDQQ_MWzyJO8GUN7q9BvH1wOOCwk0lpdZU</string>
 </resources>
