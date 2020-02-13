@@ -26,6 +26,7 @@
         android:hint="@string/e_mail_address_here"
         android:inputType="textEmailAddress"
 
+        android:textColor="@color/colorWords"
         android:textColorHint="@color/colorWords"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/password"
+        android:textColor="@color/colorWords"
         android:inputType="textPassword"
         android:textColorHint="@color/colorWords"
         app:layout_constraintBottom_toBottomOf="parent"
