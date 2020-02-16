@@ -10,6 +10,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import ca326.petwatch.petwatch.ui.log.LogFragment;
+
 import static ca326.petwatch.petwatch.R.id.navigation_speed;
 
 public class Main2Activity extends AppCompatActivity {
@@ -27,6 +29,7 @@ public class Main2Activity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
     }
 
 }
