@@ -14,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 
+
 import static ca326.petwatch.petwatch.R.id.navigation_speed;
 
 public class Main2Activity extends AppCompatActivity {
@@ -36,6 +37,8 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
+
         }
+
     }
 

@@ -59,13 +59,9 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         passwordNotMatch = (TextView) findViewById(R.id.passwordNotMatch);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
-        db = FirebaseFirestore.getInstance();
-
+        db =  FirebaseFirestore.getInstance();
 
         buttonSignUp.setOnClickListener(this);
-
-
 
     }
 
@@ -85,9 +81,8 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         String pName = getPName();
         String cPWord = getcreatePWord();
 
-        if ((fName.equals("")) || (lName.equals("")) || (pName.equals("")) || (eAddress.equals("")) || (pWord.equals("")))
+        if (!(checkIfSectionsFilled(eAddress, fName, lName, pName, pWord)))
         {
-            toastMessage("Not all sections are filled!");
             //Stops function from executing further
             return;
         }
@@ -174,7 +169,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public boolean passwordMatch(String password, String otherPassword)
+    private boolean passwordMatch(String password, String otherPassword)
     {
         if (password.equals(otherPassword))
             return true;
@@ -186,6 +181,20 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    private boolean checkIfSectionsFilled(String eAddress, String fName, String lName, String pName, String  pWord)
+    {
+        if ((fName.equals("")) || (lName.equals("")) || (pName.equals("")) || (eAddress.equals("")) || (pWord.equals("")))
+        {
+            toastMessage("Not all sections are filled!");
+            //Stops function from executing further
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
     protected String getFName()
     {

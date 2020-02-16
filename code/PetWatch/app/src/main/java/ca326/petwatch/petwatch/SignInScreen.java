@@ -38,7 +38,7 @@ public class SignInScreen extends AppCompatActivity
         warningText = (TextView)findViewById(R.id.warningText);
         buttonSignIn = (Button)findViewById(R.id.buttonSignin);
 
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()
         {
@@ -80,10 +80,8 @@ public class SignInScreen extends AppCompatActivity
 
     }
 
-
     private void toastMessage(String message)
     {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
 }
