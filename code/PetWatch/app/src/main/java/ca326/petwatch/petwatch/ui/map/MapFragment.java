@@ -64,6 +64,7 @@ public class MapFragment extends Fragment{
 
                         // For showing a move to my location button
                         //googleMap.setMyLocationEnabled(true);
+                        //call function for arduino
 
                         // For dropping a marker at a point on the Map
                         LatLng dublin = new LatLng(53.33306, -6.24889);
