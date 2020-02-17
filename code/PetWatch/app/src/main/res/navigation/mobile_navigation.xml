@@ -5,6 +5,7 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/navigation_map">
 
+
     <fragment
         android:id="@+id/navigation_panic"
         android:name="ca326.petwatch.petwatch.ui.panic.PanicFragment"
