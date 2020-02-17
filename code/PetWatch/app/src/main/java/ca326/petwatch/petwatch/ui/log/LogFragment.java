@@ -20,10 +20,8 @@ import ca326.petwatch.petwatch.R;
 
 public class LogFragment extends Fragment
 {
-    RecyclerView recyclerView;
-    String [] items = {"Ali", "Ethan"};
+    private RecyclerView recyclerView;
 
-    //private LogViewModel logViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
@@ -32,7 +30,7 @@ public class LogFragment extends Fragment
 
         View root = inflater.inflate(R.layout.fragment_log, container, false);
 
-        recyclerView = (RecyclerView) root.findViewById(R.id.dataLogs);
+        recyclerView = root.findViewById(R.id.dataLogs);
 
         RecyclerViewAdapter listAdapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(listAdapter);

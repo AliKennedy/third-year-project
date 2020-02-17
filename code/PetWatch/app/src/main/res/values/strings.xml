@@ -19,11 +19,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="panic">Panic</string>
-    <string name="speed">Speed</string>
+
     <string name="map">Map</string>
     <string name="log">Log</string>
     <string name="settings">Settings</string>
 
     //Google Maps api
     <string name="PETWATCH_GOOGLE_MAPS_API_KEY">AIzaSyDQQ_MWzyJO8GUN7q9BvH1wOOCwk0lpdZU</string>
+    <string name="Date">Date</string>
+    <string name="speed">Speed</string>
+    <string name="location_image">Location Image</string>
+    <string name="kph">Kph</string>
 </resources>
