@@ -23,7 +23,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import ca326.petwatch.petwatch.R;
 
 import ca326.petwatch.petwatch.R.*;
 
@@ -67,7 +66,7 @@ public class MapFragment extends Fragment{
                         //call function for arduino
 
                         // For dropping a marker at a point on the Map
-                        LatLng dublin = new LatLng(53.33306, -6.24889);
+                        LatLng dublin = new LatLng(53.35124, -6.26296);
                         googleMap.addMarker(new MarkerOptions().position(dublin).title("Dublin").snippet("Testing"));
 
                         // For zooming automatically to the location of the marker
