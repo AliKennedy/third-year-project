@@ -1,15 +1,32 @@
 package ca326.petwatch.petwatch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SignUpScreen extends AppCompatActivity
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SignUpScreen extends AppCompatActivity implements View.OnClickListener
 {
     private EditText firstName;
     private EditText lastName;
@@ -21,9 +38,9 @@ public class SignUpScreen extends AppCompatActivity
     private Button buttonSignUp;
     private TextView passwordNotMatch;
 
-    DatabaseHelper mDatabaseHelper;
-
-
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db;
+    private DocumentReference docRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,57 +48,131 @@ public class SignUpScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_screen);
 
-        firstName = (EditText)findViewById(R.id.firstName);
-        lastName = (EditText)findViewById(R.id.Surname);
-        petsName = (EditText)findViewById(R.id.petsName);
-        emailAddress = (EditText)findViewById(R.id.emailAddress);
-        createPassword = (EditText)findViewById(R.id.passwordCreate);
-        confirmPassword = (EditText)findViewById(R.id.confirmPassword);
+        firstName = (EditText) findViewById(R.id.firstName);
+        lastName = (EditText) findViewById(R.id.Surname);
+        petsName = (EditText) findViewById(R.id.petsName);
+        emailAddress = (EditText) findViewById(R.id.emailAddress);
+        createPassword = (EditText) findViewById(R.id.passwordCreate);
+        confirmPassword = (EditText) findViewById(R.id.confirmPassword);
 
-        buttonSignUp = (Button)findViewById(R.id.buttonSignUp);
-        passwordNotMatch = (TextView)findViewById(R.id.passwordNotMatch);
+        buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
+        passwordNotMatch = (TextView) findViewById(R.id.passwordNotMatch);
 
-        mDatabaseHelper = new DatabaseHelper(this);
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        buttonSignUp.setOnClickListener(new View.OnClickListener()
-        {
+        db = FirebaseFirestore.getInstance();
 
-                @Override
-                public void onClick(View view)
-                {
-                    if (passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString())) //&& (emailAlreadyTaken(emailAddress.getText().toString()) != true))
-                    {
-                        if ((firstName.getText().toString().length() != 0) && (lastName.getText().toString().length() != 0) && (petsName.getText().toString().length() != 0) && (emailAddress.getText().toString().length() != 0))
-                            createAccount(firstName.getText().toString(), lastName.getText().toString(), petsName.getText().toString(), emailAddress.getText().toString(), confirmPassword.getText().toString(), 1);
-                        else
-                            toastMessage("You must fill in all parameters!");
-                    }
-                        else
-                    {
-                        passwordMatch(createPassword.getText().toString(), confirmPassword.getText().toString());
-                        //emailAlreadyTaken(emailAddress.getText().toString());
-                    }
-                }
 
-        });
+        buttonSignUp.setOnClickListener(this);
+
+
+
     }
 
-    public void createAccount(String fName, String lName, String pName, String eAddress, String password, Integer ardID)
+    @Override
+    public void onClick(View v)
     {
-        boolean db2 = mDatabaseHelper.addData(fName, "fName");
-        boolean db3 = mDatabaseHelper.addData(lName, "sName");
-        boolean db4 = mDatabaseHelper.addData(pName, "pName");
-        boolean db5 = mDatabaseHelper.addData(eAddress, "eMail");
-        boolean db6 = mDatabaseHelper.addData(password, "pWord");
-        boolean db7 = mDatabaseHelper.addData(ardID.toString(), "ardID");
+        registerUser(firebaseAuth, getEAddress(), getconfirmPWord());
+    }
 
-        if ((db2) && (db3) && (db4) && (db5) && (db6) && (db7))
-            toastMessage("Hoorraayy it Works");
+
+    private void registerUser(final FirebaseAuth fb, final String eAddress, final String pWord)
+    {
+        final Map<String, Object> user = new HashMap<>();
+
+        String fName = getFName();
+        String lName = getLName();
+        String pName = getPName();
+        String cPWord = getcreatePWord();
+
+        if ((fName.equals("")) || (lName.equals("")) || (pName.equals("")) || (eAddress.equals("")) || (pWord.equals("")))
+        {
+            toastMessage("Not all sections are filled!");
+            //Stops function from executing further
+            return;
+        }
+        //Everything is valid
         else
-            toastMessage("I broke it");
+        {
+            if ((passwordMatch(cPWord, pWord)))
+            {
+                user.put("fName", fName);
+                user.put("lName", lName);
+                user.put("pName", pName);
+                user.put("ardID", 1);
 
+                fb.createUserWithEmailAndPassword(eAddress, pWord)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
+                        {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task)
+                            {
+
+                                if (task.isSuccessful())
+                                {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    //toastMessage("It worked!!");
+                                    String uid = fb.getUid();
+                                    docRef = db.collection("userDetails").document(uid);
+
+                                    docRef.set(user)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>()
+                                            {
+                                                @Override
+                                                public void onSuccess(Void aVoid)
+                                                {
+                                                    toastMessage("Successfully created account");
+                                                    Intent intent = new Intent(SignUpScreen.this, SignInScreen.class);
+                                                    startActivity(intent);
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener()
+                                            {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e)
+                                                {
+                                                    toastMessage("Error Creating Account. Please Try Again Later");
+                                                }
+                                            });
+
+
+                                }
+                                else
+                                {
+                                    if (task.getException() instanceof FirebaseAuthUserCollisionException)
+                                    {
+                                        toastMessage("Email address already taken!");
+                                        Intent intent = new Intent(SignUpScreen.this, SignInScreen.class);
+                                        startActivity(intent);
+                                    }
+                                    else
+                                    {
+                                        toastMessage("Error Creating Account. Please Try Again Later.");
+                                    }
+                                }
+
+                                // If sign in fails, display a message to the user.
+                                //toastMessage("Successfully Registered");
+
+                                // ...
+                            }
+                        });
+            }
+            else
+            {
+                toastMessage("Passwords do not match.");
+            }
+
+        }
 
     }
+
+
+    private void toastMessage(String message)
+    {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
 
     public boolean passwordMatch(String password, String otherPassword)
     {
@@ -95,23 +186,39 @@ public class SignUpScreen extends AppCompatActivity
         }
     }
 
-    private void toastMessage(String message)
+
+    protected String getFName()
     {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        return firstName.getText().toString().trim();
     }
 
-// NEED DATABASE SETUP TO USE THIS METHOD
-//    public boolean emailAlreadyTaken(String email)
-//    {
-//        //Database query here
-//        if (true)
-//        {
-//            //Display error saying already taken
-//            return true;
-//        }
-//        else
-//        {
-//            return false;
-//        }
-//    }
+    protected String getLName()
+    {
+        return lastName.getText().toString().trim();
+    }
+
+    protected String getPName()
+    {
+        return petsName.getText().toString().trim();
+    }
+
+
+
+    protected String getEAddress()
+    {
+        return emailAddress.getText().toString().trim();
+    }
+
+    protected String getcreatePWord()
+    {
+        return createPassword.getText().toString().trim();
+    }
+
+    protected String getconfirmPWord()
+    {
+        return confirmPassword.getText().toString().trim();
+    }
+
+
+
 }
