@@ -1,0 +1,250 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ca326.petwatch.petwatch"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:6:5-67
+11-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:7:5-79
+12-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:7:22-76
+13
+14    <uses-feature
+14-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:37:5-39:34
+15        android:glEsVersion="0x00020000"
+15-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:38:9-41
+16        android:required="true" />
+16-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:39:9-32
+17
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->[com.google.firebase:firebase-firestore:17.1.2] /home/ali/.gradle/caches/transforms-2/files-2.1/a4460f92508f47f8069277e2cf82af79/jetified-firebase-firestore-17.1.2/AndroidManifest.xml:10:5-79
+18-->[com.google.firebase:firebase-firestore:17.1.2] /home/ali/.gradle/caches/transforms-2/files-2.1/a4460f92508f47f8069277e2cf82af79/jetified-firebase-firestore-17.1.2/AndroidManifest.xml:10:22-76
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:25:5-68
+19-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:25:22-65
+20    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+20-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:26:5-110
+20-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:26:22-107
+21    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+21-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:26:5-82
+21-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:26:22-79
+22
+23    <application
+23-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:9:5-35:19
+24        android:allowBackup="true"
+24-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:10:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/331630a23dfa1f0594bcf54d5352aa36/core-1.1.0/AndroidManifest.xml:24:18-86
+26        android:debuggable="true"
+27        android:icon="@mipmap/ic_launcher"
+27-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:11:9-43
+28        android:label="@string/app_name"
+28-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:12:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:13:9-54
+30        android:supportsRtl="true"
+30-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:14:9-35
+31        android:testOnly="true"
+32        android:theme="@style/AppTheme" >
+32-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:15:9-40
+33        <meta-data
+33-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:18:9-20:67
+34            android:name="com.google.android.geo.API_KEY"
+34-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:19:13-58
+35            android:value="@string/PETWATCH_GOOGLE_MAPS_API_KEY" />
+35-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:20:13-65
+36
+37        <activity
+37-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:22:9-24:69
+38            android:name="ca326.petwatch.petwatch.Main2Activity"
+38-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:23:13-42
+39            android:label="@string/title_activity_main2" />
+39-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:24:13-57
+40        <activity android:name="ca326.petwatch.petwatch.SignUpScreen" />
+40-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:25:9-50
+40-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:25:19-47
+41        <activity android:name="ca326.petwatch.petwatch.SignInScreen" />
+41-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:26:9-50
+41-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:26:19-47
+42        <activity android:name="ca326.petwatch.petwatch.StartUpScreen" />
+42-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:27:9-51
+42-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:27:19-48
+43        <activity android:name="ca326.petwatch.petwatch.LoadingScreen" >
+43-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:28:9-34:20
+43-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:28:19-48
+44            <intent-filter>
+44-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:29:13-33:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:30:17-69
+45-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:30:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:32:17-77
+47-->/home/ali/College/2020-ca326-akennedy-wheresmydoggo/code/PetWatch/app/src/main/AndroidManifest.xml:32:27-74
+48            </intent-filter>
+49        </activity>
+50        <activity
+50-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:24:9-31:50
+51            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+51-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:25:13-85
+52            android:excludeFromRecents="true"
+52-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:26:13-46
+53            android:exported="true"
+53-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:27:13-36
+54            android:launchMode="singleTask"
+54-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:28:13-44
+55            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+55-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:29:13-102
+56            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+56-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:30:13-72
+57
+58        <service
+58-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:33:9-39:19
+59            android:name="com.google.firebase.components.ComponentDiscoveryService"
+59-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:34:13-84
+60            android:directBootAware="true"
+60-->[com.google.firebase:firebase-common:19.3.0] /home/ali/.gradle/caches/transforms-2/files-2.1/5860d2acfe938a31f8d5d4aa2bab72e3/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+61            android:exported="false" >
+61-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:35:13-37
+62            <meta-data
+62-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:36:13-38:85
+63                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+63-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:37:17-109
+64                android:value="com.google.firebase.components.ComponentRegistrar" />
+64-->[com.google.firebase:firebase-auth:19.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:38:17-82
+65            <meta-data
+65-->[com.google.firebase:firebase-firestore:17.1.2] /home/ali/.gradle/caches/transforms-2/files-2.1/a4460f92508f47f8069277e2cf82af79/jetified-firebase-firestore-17.1.2/AndroidManifest.xml:15:13-17:85
+66                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+66-->[com.google.firebase:firebase-firestore:17.1.2] /home/ali/.gradle/caches/transforms-2/files-2.1/a4460f92508f47f8069277e2cf82af79/jetified-firebase-firestore-17.1.2/AndroidManifest.xml:16:17-111
+67                android:value="com.google.firebase.components.ComponentRegistrar" />
+67-->[com.google.firebase:firebase-firestore:17.1.2] /home/ali/.gradle/caches/transforms-2/files-2.1/a4460f92508f47f8069277e2cf82af79/jetified-firebase-firestore-17.1.2/AndroidManifest.xml:17:17-82
+68            <meta-data
+68-->[com.google.android.gms:play-services-measurement-api:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:30:13-32:85
+69                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+69-->[com.google.android.gms:play-services-measurement-api:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:31:17-139
+70                android:value="com.google.firebase.components.ComponentRegistrar" />
+70-->[com.google.android.gms:play-services-measurement-api:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:32:17-82
+71            <meta-data
+71-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:32:13-34:85
+72                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+72-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:33:17-96
+73                android:value="com.google.firebase.components.ComponentRegistrar" />
+73-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:34:17-82
+74        </service> <!-- Needs to be explicitly declared on P+ -->
+75        <uses-library
+75-->[com.google.android.gms:play-services-maps:16.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/30772008d3a6f98fb520a880c5e8a8df/jetified-play-services-maps-16.1.0/AndroidManifest.xml:33:9-35:40
+76            android:name="org.apache.http.legacy"
+76-->[com.google.android.gms:play-services-maps:16.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/30772008d3a6f98fb520a880c5e8a8df/jetified-play-services-maps-16.1.0/AndroidManifest.xml:34:13-50
+77            android:required="false" />
+77-->[com.google.android.gms:play-services-maps:16.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/30772008d3a6f98fb520a880c5e8a8df/jetified-play-services-maps-16.1.0/AndroidManifest.xml:35:13-37
+78
+79        <receiver
+79-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:29:9-33:20
+80            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+80-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:30:13-85
+81            android:enabled="true"
+81-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:31:13-35
+82            android:exported="false" >
+82-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:32:13-37
+83        </receiver>
+84        <receiver
+84-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:34:9-42:20
+85            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+85-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:35:13-100
+86            android:enabled="true"
+86-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:36:13-35
+87            android:exported="true"
+87-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:37:13-36
+88            android:permission="android.permission.INSTALL_PACKAGES" >
+88-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:38:13-69
+89            <intent-filter>
+89-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:39:13-41:29
+90                <action android:name="com.android.vending.INSTALL_REFERRER" />
+90-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:40:17-79
+90-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:40:25-76
+91            </intent-filter>
+92        </receiver>
+93
+94        <service
+94-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:44:9-47:40
+95            android:name="com.google.android.gms.measurement.AppMeasurementService"
+95-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:45:13-84
+96            android:enabled="true"
+96-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:46:13-35
+97            android:exported="false" />
+97-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:47:13-37
+98        <service
+98-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:48:9-52:72
+99            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+99-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:49:13-87
+100            android:enabled="true"
+100-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:50:13-35
+101            android:exported="false"
+101-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:51:13-37
+102            android:permission="android.permission.BIND_JOB_SERVICE" />
+102-->[com.google.android.gms:play-services-measurement:17.2.2] /home/ali/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:52:13-69
+103
+104        <receiver
+104-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:37:9-44:20
+105            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+105-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:38:13-78
+106            android:exported="true"
+106-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:39:13-36
+107            android:permission="com.google.android.c2dm.permission.SEND" >
+107-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:40:13-73
+108            <intent-filter>
+108-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:41:13-43:29
+109                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+109-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:42:17-81
+109-->[com.google.firebase:firebase-iid:20.0.2] /home/ali/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:42:25-78
+110            </intent-filter>
+111        </receiver>
+112
+113        <provider
+113-->[com.google.firebase:firebase-common:19.3.0] /home/ali/.gradle/caches/transforms-2/files-2.1/5860d2acfe938a31f8d5d4aa2bab72e3/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+114            android:name="com.google.firebase.provider.FirebaseInitProvider"
+114-->[com.google.firebase:firebase-common:19.3.0] /home/ali/.gradle/caches/transforms-2/files-2.1/5860d2acfe938a31f8d5d4aa2bab72e3/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+115            android:authorities="ca326.petwatch.petwatch.firebaseinitprovider"
+115-->[com.google.firebase:firebase-common:19.3.0] /home/ali/.gradle/caches/transforms-2/files-2.1/5860d2acfe938a31f8d5d4aa2bab72e3/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+116            android:exported="false"
+116-->[com.google.firebase:firebase-common:19.3.0] /home/ali/.gradle/caches/transforms-2/files-2.1/5860d2acfe938a31f8d5d4aa2bab72e3/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+117            android:initOrder="100" />
+117-->[com.google.firebase:firebase-common:19.3.0] /home/ali/.gradle/caches/transforms-2/files-2.1/5860d2acfe938a31f8d5d4aa2bab72e3/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+118
+119        <activity
+119-->[com.google.android.gms:play-services-base:17.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+120            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+120-->[com.google.android.gms:play-services-base:17.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+121            android:exported="false"
+121-->[com.google.android.gms:play-services-base:17.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+122            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+122-->[com.google.android.gms:play-services-base:17.1.0] /home/ali/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+123
+124        <meta-data
+124-->[com.google.android.gms:play-services-basement:17.0.0] /home/ali/.gradle/caches/transforms-2/files-2.1/499da85575140958c1fb60c9ed930c7f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+125            android:name="com.google.android.gms.version"
+125-->[com.google.android.gms:play-services-basement:17.0.0] /home/ali/.gradle/caches/transforms-2/files-2.1/499da85575140958c1fb60c9ed930c7f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+126            android:value="@integer/google_play_services_version" />
+126-->[com.google.android.gms:play-services-basement:17.0.0] /home/ali/.gradle/caches/transforms-2/files-2.1/499da85575140958c1fb60c9ed930c7f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+127
+128        <provider
+128-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+129            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+129-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+130            android:authorities="ca326.petwatch.petwatch.lifecycle-process"
+130-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+131            android:exported="false"
+131-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+132            android:multiprocess="true" />
+132-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/ali/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+133    </application>
+134
+135</manifest>
