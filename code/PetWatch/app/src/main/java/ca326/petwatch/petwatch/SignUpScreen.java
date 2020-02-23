@@ -38,9 +38,12 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     private Button buttonSignUp;
     private TextView passwordNotMatch;
 
+    private String ardID = "uivwA";
+
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
     private DocumentReference docRef;
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -94,7 +97,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
                 user.put("fName", fName);
                 user.put("lName", lName);
                 user.put("pName", pName);
-                user.put("ardID", 1);
+                user.put("ardID", ardID);
 
                 fb.createUserWithEmailAndPassword(eAddress, pWord)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
@@ -107,7 +110,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
                                 {
                                     // Sign in success, update UI with the signed-in user's information
                                     //toastMessage("It worked!!");
-                                    String uid = fb.getUid();
+                                    uid = fb.getUid();
                                     docRef = db.collection("userDetails").document(uid);
 
                                     docRef.set(user)
@@ -228,6 +231,9 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         return confirmPassword.getText().toString().trim();
     }
 
-
+    public String getUniqueID()
+    {
+        return uid;
+    }
 
 }
