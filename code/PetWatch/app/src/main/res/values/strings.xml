@@ -11,9 +11,9 @@
     <string name="username_or_password_is_incorrect">Username or Password is Incorrect</string>
     <string name="PetWatch">PetWatch</string>
     <string name="title_activity_main2">Main2Activity</string>
-<!--    <string name="title_home">Home</string>-->
-<!--    <string name="title_dashboard">Dashboard</string>-->
-<!--    <string name="title_notifications">Notifications</string>-->
+    <!--    <string name="title_home">Home</string>-->
+    <!--    <string name="title_dashboard">Dashboard</string>-->
+    <!--    <string name="title_notifications">Notifications</string>-->
 
     //fragments
     <!-- TODO: Remove or change this placeholder text -->
@@ -30,4 +30,10 @@
     <string name="speed">Speed</string>
     <string name="location_image">Location Image</string>
     <string name="kph">Kph</string>
+    <string name="account">Account</string>
+    <string name="notifications">Notifications</string>
+    <string name="privacy_security"><![CDATA[Privacy & Security]]></string>
+    <string name="support">Support</string>
+    <string name="about">About</string>
+    <string name="log_out">Log Out</string>
 </resources>

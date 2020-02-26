@@ -38,7 +38,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     private Button buttonSignUp;
     private TextView passwordNotMatch;
 
-    private String ardID = "uivwA";
+    private String ardID;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db;
@@ -94,10 +94,11 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         {
             if ((passwordMatch(cPWord, pWord)))
             {
+                setNewArdID();
                 user.put("fName", fName);
                 user.put("lName", lName);
                 user.put("pName", pName);
-                user.put("ardID", ardID);
+                user.put("ardID", getNewArdID());
 
                 fb.createUserWithEmailAndPassword(eAddress, pWord)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
@@ -231,9 +232,15 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         return confirmPassword.getText().toString().trim();
     }
 
-    public String getUniqueID()
+    protected String getNewArdID()
     {
-        return uid;
+        return ardID;
     }
+
+    protected void setNewArdID()
+    {
+        ardID = RetrieveArduinoID.generateRandomString(5);
+    }
+
 
 }

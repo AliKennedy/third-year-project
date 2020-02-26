@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -42,11 +43,12 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class MapFragment extends Fragment
 {
+
     // Google map variable
     private GoogleMap googleMap;
 
     // Map view variable
-    MapView mMapView;
+    private MapView mMapView;
 
     // Access RealTime database
     private FirebaseDatabase database;
@@ -54,11 +56,6 @@ public class MapFragment extends Fragment
     // Get a reference from the database
     private DatabaseReference myRef;
 
-    // Authentication of user to ensure correct Arduino location is being displayed
-    private FirebaseAuth firebaseAuth;
-
-    // Users unique id to get access to Arduino id
-    private String uid;
     // Arduino id
     private String ardID;
     // used as a variable to obtain the Arduino id
@@ -66,21 +63,20 @@ public class MapFragment extends Fragment
     private Double lat;
     private Double lng;
 
-    // Access to the cloud firestore database to obtain Arduino id
-    private FirebaseFirestore firebaseFirestore;
-    // document reference for the cloud firestore database
-    private DocumentReference docRef;
-
     // A map object created to access the data retrieved
 
-    private String refFromUrl = "https://petwatch-519c6.firebaseio.com/";
+    private String refFromUrl;// = "https://petwatch-519c6.firebaseio.com/";
 
+    private  String collectionPath;
 
+    private String arduinoIDKey;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, final Bundle savedInstanceState)
     {
+        setCollectionPath("userDetails");
+        setRefFromUrl("https://petwatch-519c6.firebaseio.com/");
         final View root = inflater.inflate(layout.fragment_map, container, false);
 
         // Creates a map view
@@ -93,16 +89,23 @@ public class MapFragment extends Fragment
         // Creates a user object
         FirebaseUser user;
         // Gets an instance of the current user
-        firebaseAuth = firebaseAuth.getInstance();
+        // Authentication of user to ensure correct Arduino location is being displayed
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         // Gets the unique I.D. of the current user
+
+        // Users unique id to get access to Arduino id
+        assert user != null;
+        String uid;
         uid = user.getUid();
 
         // Gets an instance of the Cloud Firestore Database
-        firebaseFirestore = FirebaseFirestore.getInstance();
+        // Access to the cloud firestore database to obtain Arduino id
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
         // Accesses the current users document
-        docRef = firebaseFirestore.collection("userDetails").document(uid);
+        // document reference for the cloud firestore database
+        DocumentReference docRef = firebaseFirestore.collection(getCollectionPath()).document(uid);
 
 
         // Gets an instance of the Real-Time database
@@ -120,9 +123,10 @@ public class MapFragment extends Fragment
                         // If the document exists, get the data
                         if (documentSnapshot.exists())
                         {
-                            ardID = documentSnapshot.getString("ardID");
+                            setArduinoIDKey("ardID");
+                            ardID = documentSnapshot.getString(getArduinoIDKey());
 
-                            myRef = database.getReferenceFromUrl(refFromUrl + ardID); // URL plus Arduino id!
+                            myRef = database.getReferenceFromUrl(getRefFromUrl() + getArduinoIDKey()); // URL plus Arduino id!
 
                             // A method that evaluates if there are any changes of the data in the database
                             Log.d(TAG, "url is " + refFromUrl + ardID);
@@ -141,51 +145,28 @@ public class MapFragment extends Fragment
                                             lat = (Double) data.getValue();
                                             Log.d(TAG, "lat is " + lat);
                                         }
-                                        else
+                                        else if (data.getKey().equals("lng"))
                                         {
                                             lng = (Double) data.getValue();
                                             //gpsData.put("lng", data.getValue());
                                             Log.d(TAG, "lng is " + lng);
                                         }
-                                    }
-
-                                    // In a try as it can throw a NullPointerException
-                                    try
-                                    {
-                                        MapsInitializer.initialize(getActivity().getApplicationContext());
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        e.printStackTrace();
-                                    }
-
-                                    // Displays Google Map in fragment
-                                    mMapView.getMapAsync(new OnMapReadyCallback()
-                                    {
-                                        @Override
-                                        public void onMapReady(GoogleMap mMap)
+                                        else
                                         {
-                                            googleMap = mMap;
-
-                                            // For showing a move to my location button
-                                            //googleMap.setMyLocationEnabled(true);
-                                            //call function for Arduino
-
-                                            // For dropping a marker at a point on the Map
-                                            LatLng gpsTracker = new LatLng(lat, lng);
-                                            googleMap.addMarker(new MarkerOptions().position(gpsTracker).title("Tracker"));
-
-                                            // For zooming automatically to the location of the marker
-                                            CameraPosition cameraPosition = new CameraPosition.Builder().target(gpsTracker).zoom(15).build();
-                                            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                                            //Do Nothing for now
+                                            //Intentions to add speed here
                                         }
-                                    });
+                                    }
+
+                                    createMap(lat, lng);
+
                                 }
                                 // If the data does not exist the method goes here
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError)
                                 {
-
+                                    //Display message saying access to RealTime Database was denied
+                                    toastMessage("Accessing Co-ordinates could not happen, Please Try Again Later");
                                 }
                             });
                         }
@@ -197,9 +178,85 @@ public class MapFragment extends Fragment
                     @Override
                     public void onFailure(@NonNull Exception e)
                     {
-
+                        //Access to cloud firestore was not achieved.
+                        toastMessage("Access to retrieve Tracker ID is denied, Please Try Again Later");
                     }
                 });
         return root;
+    }
+
+
+    private void createMap(final Double latitude, final Double longitude)
+    {
+        // In a try as it can throw a NullPointerException
+        try
+        {
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+
+            // Displays Google Map in fragment
+            mMapView.getMapAsync(new OnMapReadyCallback()
+            {
+                @Override
+                public void onMapReady(GoogleMap mMap)
+                {
+                    googleMap = mMap;
+                    googleMap.clear();
+
+                    // For showing a move to my location button
+                    //googleMap.setMyLocationEnabled(true);
+                    //call function for Arduino
+
+                    // For dropping a marker at a point on the Map
+                    LatLng gpsTracker = new LatLng(latitude, longitude);
+                    googleMap.addMarker(new MarkerOptions().position(gpsTracker).title("Tracker"));
+
+                    // For zooming automatically to the location of the marker
+                    CameraPosition cameraPosition = new CameraPosition.Builder().target(gpsTracker).zoom(15).build();
+                    googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                }
+            });
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void toastMessage(String message)
+    {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private String getCollectionPath()
+    {
+        return collectionPath;
+    }
+
+    private void setCollectionPath(String collectionPath)
+    {
+        this.collectionPath = collectionPath;
+    }
+
+    private void setRefFromUrl(String refFromUrl)
+    {
+        this.refFromUrl = refFromUrl;
+    }
+
+    private String getRefFromUrl()
+    {
+        return this.refFromUrl;
+    }
+
+    private String getArduinoIDKey()
+    {
+        return arduinoIDKey;
+    }
+
+    private void setArduinoIDKey(String arduinoIDKey)
+    {
+        this.arduinoIDKey = arduinoIDKey;
     }
 }
