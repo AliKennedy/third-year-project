@@ -10,6 +10,7 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,11 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.settings.NotificationInfo"></activity>
+
+        <activity android:name=".ui.settings.NotificationInfo" />
         <activity android:name=".ui.settings.PrivacySecurityInfo" />
         <activity android:name=".ui.settings.AccountInfo" />
         <activity android:name=".ui.settings.SupportInfo" />
         <activity android:name=".ui.settings.AboutInfo" />
+
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

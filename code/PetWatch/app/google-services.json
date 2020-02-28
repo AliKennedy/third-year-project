@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "370907658136-t7unv2l74bf2cdpa9g3179ktfhll713t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca326.petwatch.petwatch",
+            "certificate_hash": "d49deada34c728bdc126fa6c4d029807e9f08987"
+          }
+        },
+        {
           "client_id": "370907658136-3l0d6eni0ffp7md5f3evetu6cj8grpp5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
