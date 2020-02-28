@@ -17,8 +17,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import com.google.firebase.auth.FirebaseAuth;
 
+import ca326.petwatch.petwatch.LoadingScreen;
 import ca326.petwatch.petwatch.R;
+import ca326.petwatch.petwatch.StartUpScreen;
 
 public class SettingsFragment extends Fragment {
 
@@ -99,7 +102,11 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                //logout
+                Intent intent = new Intent(getActivity(), StartUpScreen.class);
+                getActivity().startActivity(intent);
+
+                FirebaseAuth.getInstance().signOut();
+                getActivity().finish();
             }
         });
 
