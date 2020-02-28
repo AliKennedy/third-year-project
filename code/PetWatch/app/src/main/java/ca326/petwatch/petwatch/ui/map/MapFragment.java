@@ -126,7 +126,7 @@ public class MapFragment extends Fragment
                             setArduinoIDKey("ardID");
                             ardID = documentSnapshot.getString(getArduinoIDKey());
 
-                            myRef = database.getReferenceFromUrl(getRefFromUrl() + getArduinoIDKey()); // URL plus Arduino id!
+                            myRef = database.getReferenceFromUrl(getRefFromUrl() + ardID); // URL plus Arduino id!
 
                             // A method that evaluates if there are any changes of the data in the database
                             Log.d(TAG, "url is " + refFromUrl + ardID);
