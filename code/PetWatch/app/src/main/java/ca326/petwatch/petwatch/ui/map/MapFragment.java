@@ -60,6 +60,9 @@ public class MapFragment extends Fragment
     private String ardID;
     // used as a variable to obtain the Arduino id
 
+    private String latString;
+    private String lngString;
+
     private Double lat;
     private Double lng;
 
@@ -142,12 +145,14 @@ public class MapFragment extends Fragment
                                     {
                                         if (data.getKey().equals("lat"))
                                         {
-                                            lat = (Double) data.getValue();
+                                            latString = (String) data.getValue();
+                                            lat = Double.parseDouble(latString);
                                             Log.d(TAG, "lat is " + lat);
                                         }
                                         else if (data.getKey().equals("lng"))
                                         {
-                                            lng = (Double) data.getValue();
+                                            lngString = (String) data.getValue();
+                                            lng = Double.parseDouble(lngString);
                                             //gpsData.put("lng", data.getValue());
                                             Log.d(TAG, "lng is " + lng);
                                         }
