@@ -1,83 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/gradient">
 
+    <LinearLayout
+        android:id="@+id/AccountLayout"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/NotificationsLayout">
     <Button
         android:id="@+id/Account"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:width="380dp"
         android:text="@string/account"
         android:textColor="@color/colorWords"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/NotificationsLayout"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_above="@+id/PrivacySecurityLayout">
 
     <Button
         android:id="@+id/Notifications"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:width="380dp"
         android:textColor="@color/colorWords"
         android:textSize="22sp"
-        android:text="@string/notifications"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Account" />
+        android:text="@string/notifications" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/PrivacySecurityLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/SupportLayout">
 
     <Button
         android:id="@+id/PrivacySecurity"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:width="380dp"
         android:textColor="@color/colorWords"
         android:textSize="22sp"
-        android:text="@string/privacy_security"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Notifications" />
+        android:text="@string/privacy_security"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/SupportLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
 
     <Button
         android:id="@+id/Support"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:width="380dp"
         android:textColor="@color/colorWords"
         android:textSize="22sp"
-        android:text="@string/support"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PrivacySecurity" />
+        android:text="@string/support" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/AboutLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/SupportLayout">
 
     <Button
         android:id="@+id/About"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:width="380dp"
         android:textColor="@color/colorWords"
         android:textSize="22sp"
-        android:text="@string/about"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Support" />
+        android:text="@string/about" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/logOutLayout"
+        android:padding="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/AboutLayout">
 
     <Button
         android:id="@+id/logOut"
-        android:layout_width="0dp"
+        android:width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="50dp"
+        android:layout_width="wrap_content"
         android:textColor="@color/colorWords"
         android:textSize="20sp"
-        android:text="@string/log_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/About" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/log_out" />
+
+    </LinearLayout>
+
+</RelativeLayout>

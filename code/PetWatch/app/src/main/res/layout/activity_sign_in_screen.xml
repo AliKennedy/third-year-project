@@ -12,12 +12,12 @@
 
     <LinearLayout
         android:id="@+id/emailAddresslayoutSignIn"
-        android:padding="10dp"
+        android:padding="5dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/enterPasswordLayout">
+        android:layout_above="@+id/errorMessageLayout">
 
     <EditText
         android:id="@+id/emailAddress"
@@ -34,7 +34,7 @@
 
     <LinearLayout
         android:id="@+id/enterPasswordLayout"
-        android:padding="10dp"
+        android:padding="5dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
@@ -75,11 +75,11 @@
 
     <LinearLayout
         android:id="@+id/errorMessageLayout"
-        android:padding="10dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/enterPasswordLayout">
 
     <TextView
         android:id="@+id/warningText"
