@@ -36,4 +36,11 @@
     <string name="support">Support</string>
     <string name="about">About</string>
     <string name="log_out">Log Out</string>
+    <string name="surname">Surname</string>
+    <string name="first_name">First Name</string>
+    <string name="pets_name">Pets Name</string>
+    <string name="passwords_do_not_match">Passwords Do Not Match</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="account_with_this_e_mail_address_is_already_taken">Account with this E-mail address is already taken</string>
+    <string name="e_mail_address">E-mail Address</string>
 </resources>

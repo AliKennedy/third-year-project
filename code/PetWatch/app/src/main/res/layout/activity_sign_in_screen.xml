@@ -1,92 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/gradient"
 
     tools:context=".SignInScreen">
 
+    <LinearLayout
+        android:id="@+id/emailAddresslayoutSignIn"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/enterPasswordLayout">
 
     <EditText
         android:id="@+id/emailAddress"
+        android:width="300dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="400dp"
         android:ems="10"
-        android:hint="@string/e_mail_address_here"
+        android:hint="@string/e_mail_address"
         android:inputType="textEmailAddress"
 
         android:textColor="@color/colorWords"
-        android:textColorHint="@color/colorWords"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColorHint="@color/colorWords" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/enterPasswordLayout"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <EditText
         android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="469dp"
-        android:autofillHints=""
+        android:width="300dp"
         android:ems="10"
         android:hint="@string/password"
         android:textColor="@color/colorWords"
         android:inputType="textPassword"
-        android:textColorHint="@color/colorWords"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
+        android:textColorHint="@color/colorWords" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonSigninLayout"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enterPasswordLayout">
 
     <Button
         android:id="@+id/buttonSignin"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="200dp"
+        android:width="140dp"
         android:text="@string/sign_in"
         android:textColor="@color/colorWords"
-        android:textSize="20sp"
+        android:textSize="17sp" />
 
+    </LinearLayout>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+    <LinearLayout
+        android:id="@+id/errorMessageLayout"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/warningText"
+        android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
         android:text="@string/username_or_password_is_incorrect"
         android:textColor="@color/colorWarning"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:visibility="invisible"
+        android:visibility="invisible" />
+    </LinearLayout>
 
-        app:layout_constraintBottom_toTopOf="@+id/emailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
