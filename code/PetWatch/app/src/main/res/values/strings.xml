@@ -24,6 +24,7 @@
     <string name="log">Log</string>
     <string name="settings">Settings</string>
 
+
     //Google Maps api
     <string name="PETWATCH_GOOGLE_MAPS_API_KEY">AIzaSyDQQ_MWzyJO8GUN7q9BvH1wOOCwk0lpdZU</string>
     <string name="Date">Date</string>
@@ -36,4 +37,7 @@
     <string name="support">Support</string>
     <string name="about">About</string>
     <string name="log_out">Log Out</string>
+
+    //firebase cloud messaging
+
 </resources>
