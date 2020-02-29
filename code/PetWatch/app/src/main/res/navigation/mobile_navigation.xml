@@ -10,30 +10,35 @@
         android:id="@+id/navigation_panic"
         android:name="ca326.petwatch.petwatch.ui.panic.PanicFragment"
         android:label="@string/panic"
-        tools:layout="@layout/fragment_panic" />
+        tools:layout="@layout/fragment_panic"
+        app:itemTextColor="@color/colorWords"/>
 
     <fragment
         android:id="@+id/navigation_speed"
         android:name="ca326.petwatch.petwatch.ui.speed.SpeedFragment"
         android:label="@string/speed"
-        tools:layout="@layout/fragment_speed" />
+        tools:layout="@layout/fragment_speed"
+        app:itemTextColor="@color/colorWords"/>
 
     <fragment
         android:id="@+id/navigation_map"
         android:name="ca326.petwatch.petwatch.ui.map.MapFragment"
         android:label="@string/map"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map"
+        app:itemTextColor="@color/colorWords"/>
 
     <fragment
         android:id="@+id/navigation_log"
         android:name="ca326.petwatch.petwatch.ui.log.LogFragment"
         android:label="@string/log"
-        tools:layout="@layout/fragment_log" />
+        tools:layout="@layout/fragment_log"
+        app:itemTextColor="@color/colorWords"/>
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="ca326.petwatch.petwatch.ui.settings.SettingsFragment"
         android:label="@string/settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings"
+        app:itemTextColor="@color/colorWords"/>
 
 </navigation>

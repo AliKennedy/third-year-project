@@ -24,6 +24,7 @@
     <string name="log">Log</string>
     <string name="settings">Settings</string>
 
+
     //Google Maps api
     <string name="PETWATCH_GOOGLE_MAPS_API_KEY">AIzaSyDQQ_MWzyJO8GUN7q9BvH1wOOCwk0lpdZU</string>
     <string name="Date">Date</string>
@@ -43,4 +44,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="account_with_this_e_mail_address_is_already_taken">Account with this E-mail address is already taken</string>
     <string name="e_mail_address">E-mail Address</string>
+=======
+
+    //firebase cloud messaging
+
+>>>>>>> 5bd8d699b801a69013c853c6084c14d3dc74497c
 </resources>
