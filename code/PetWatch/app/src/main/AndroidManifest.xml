@@ -8,24 +8,11 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true" />
-
-
-
-    <!-- [START] -->
+        android:required="true" /> <!-- [START] -->
     <!-- Set custom default icon -->
     <meta-data
         android:name="com.google.firebase.messaging.default_notification_icon"
         android:resource="@drawable/ic_panic_black_24dp" />
-    <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming notification message.-->
-<!--    <meta-data-->
-<!--        android:name="com.google.firebase.messaging.default_notification_color"-->
-<!--        android:resource="@colors/colorWarning" />-->
-<!--      Set fcm default channel-->
-<!--    <meta-data-->
-<!--        android:name="com.google.firebase.messaging.default_notification_channel_id"-->
-<!--        android:value="@string/default_notification_channel_id" />-->
-    <!-- [END] -->
 
     <application
         android:allowBackup="true"
@@ -35,14 +22,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".ForgotPassword"></activity>
         <activity android:name=".ui.settings.NotificationInfo" />
         <activity android:name=".ui.settings.PrivacySecurityInfo" />
         <activity android:name=".ui.settings.AccountInfo" />
         <activity android:name=".ui.settings.SupportInfo" />
         <activity android:name=".ui.settings.AboutInfo" />
-
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -63,13 +48,12 @@
         </activity>
 
         <service
-            android:name="ca326.petwatch.petwatch.Service.MyFirebaseMessagingService"
+            android:name=".Service.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

@@ -20,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         customDebugType {
-            debuggable  true
+            debuggable true
         }
     }
 }
@@ -56,5 +56,3 @@ dependencies {
 
 
 }
-
-
