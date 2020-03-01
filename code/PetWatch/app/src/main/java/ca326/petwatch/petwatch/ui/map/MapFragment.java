@@ -171,7 +171,7 @@ public class MapFragment extends Fragment
                                 public void onCancelled(@NonNull DatabaseError databaseError)
                                 {
                                     //Display message saying access to RealTime Database was denied
-                                    toastMessage("Accessing Co-ordinates could not happen, Please Try Again Later");
+                                    //toastMessage("Accessing Co-ordinates could not happen, Please Try Again Later");
                                 }
                             });
                         }
@@ -232,7 +232,7 @@ public class MapFragment extends Fragment
 
     private void toastMessage(String message)
     {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     private String getCollectionPath()
