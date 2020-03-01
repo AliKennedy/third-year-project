@@ -24,6 +24,7 @@ public class SignInScreen extends AppCompatActivity
     private EditText passwordText;
     private Button buttonSignIn;
     private TextView warningText;
+    private Button forgotPasswordButton;
 
     private FirebaseAuth firebaseAuth;
 
@@ -37,6 +38,7 @@ public class SignInScreen extends AppCompatActivity
         passwordText = (EditText)findViewById(R.id.passwordText);
         warningText = (TextView)findViewById(R.id.warningText);
         buttonSignIn = (Button)findViewById(R.id.buttonSignin);
+        forgotPasswordButton = (Button) findViewById(R.id.forgotPasswordButton);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -46,6 +48,16 @@ public class SignInScreen extends AppCompatActivity
             public void onClick(View view)
             {
                 validate(emailAddress.getText().toString(), passwordText.getText().toString());
+            }
+        });
+
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(SignInScreen.this, ForgotPassword.class);
+                startActivity(intent);
             }
         });
     }
