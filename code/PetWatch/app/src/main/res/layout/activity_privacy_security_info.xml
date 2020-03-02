@@ -1,11 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/gradient"
     tools:context=".ui.settings.PrivacySecurityInfo">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/Privacy1"
+        android:layout_above="@id/Privacy2"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/privacy1Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="332dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:text="Under the general Data Protection Regulation (GDPR) (EU) 2016/679, we have a legal duty to protect any information we collect from you. Your log in information is stored in a secure database on a Google server. The information will be destroyed (deleted) upon the completion of this project (29/03/20), along with the GPS tracker data.."
+            android:textColor="@color/colorWords"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Privacy2"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/privacy2Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="332dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:text="Only the main developers, Alison Kennedy and Ethan Sharkey, will have access to the data collected. "
+            android:textColor="@color/colorWords"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Privacy3"
+        android:padding="10dp"
+        android:layout_below="@id/Privacy2"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/privacyText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="332dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:text="This project took place during the course of the academic year in Dublin City University (DCU) and concluded on the 6th of March 2020. For more information please reach out through the support section."
+            android:textColor="@color/colorWords"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <Button
+                android:id="@+id/PrivacySupportButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/support"
+                android:textColor="@color/colorWords"
+                android:textSize="22sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

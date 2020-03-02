@@ -22,8 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ForgotPassword"></activity>
-        <activity android:name=".ui.settings.NotificationInfo" />
+        <activity android:name=".ui.settings.ChangePassword"></activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".ui.settings.ChangeTrackerID" />
         <activity android:name=".ui.settings.PrivacySecurityInfo" />
         <activity android:name=".ui.settings.AccountInfo" />
         <activity android:name=".ui.settings.SupportInfo" />

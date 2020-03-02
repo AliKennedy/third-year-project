@@ -57,7 +57,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), NotificationInfo.class);
+                Intent intent = new Intent(getActivity(), ChangeTrackerID.class);
                 startActivity(intent);
             }
         });

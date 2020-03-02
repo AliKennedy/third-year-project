@@ -51,9 +51,10 @@
     <string name="contact_form_subject">Subject:</string>
     <string name="contact_form_message">Message:</string>
     <string name="submit">Submit</string>
-    =======
+    <string name="first_name_account">First Name:</string>
+    <string name="name">Name:</string>
+    <string name="pets_name_Account">Pets Name:</string>
+    <string name="tracker_id">Tracker ID:</string>
+    <string name="change_password">Change Password</string>
 
-    //firebase cloud messaging
-
-    >>>>>>> 5bd8d699b801a69013c853c6084c14d3dc74497c
 </resources>
