@@ -82,10 +82,10 @@
             android:textAlignment="center">
 
             <Button
-                android:id="@+id/PrivacySupportButton"
+                android:id="@+id/PrivacyContactButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/support"
+                android:text="@string/contactUs"
                 android:textColor="@color/colorWords"
                 android:textSize="22sp" />
 

@@ -85,7 +85,7 @@
             android:id="@+id/AboutContactButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/support"
+            android:text="@string/contactUs"
             android:textColor="@color/colorWords"
             android:textSize="22sp" />
 

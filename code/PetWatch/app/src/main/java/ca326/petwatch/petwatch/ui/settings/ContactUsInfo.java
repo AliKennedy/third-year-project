@@ -15,12 +15,12 @@ import java.util.regex.Pattern;
 
 import ca326.petwatch.petwatch.R;
 
-public class SupportInfo extends AppCompatActivity {
+public class ContactUsInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_support_info);
+        setContentView(R.layout.activity_contact_us_info);
 
         //Info on how to contact us
         final EditText your_name = (EditText) findViewById(R.id.your_name);

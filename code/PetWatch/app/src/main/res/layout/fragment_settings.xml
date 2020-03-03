@@ -77,13 +77,13 @@
 
 
         <Button
-            android:id="@+id/Support"
+            android:id="@+id/Contact"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:width="380dp"
             android:textColor="@color/colorWords"
             android:textSize="22sp"
-            android:text="@string/support" />
+            android:text="@string/contactUs" />
 
 
     </LinearLayout>

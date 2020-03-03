@@ -21,13 +21,13 @@ public class PrivacySecurityInfo extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy_security_info);
 
-        supportButton = (Button)findViewById(R.id.PrivacySupportButton);
+        supportButton = (Button)findViewById(R.id.PrivacyContactButton);
         supportButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(PrivacySecurityInfo.this, SupportInfo.class);
+                Intent intent = new Intent(PrivacySecurityInfo.this, ContactUsInfo.class);
                 startActivity(intent);
             }
         });

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientreverse"
-    tools:context=".ui.settings.SupportInfo">
+    tools:context=".ui.settings.ContactUsInfo">
 
     <LinearLayout
         android:id="@+id/ContactName"
