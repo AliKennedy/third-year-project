@@ -48,6 +48,8 @@ public class AccountInfo extends AppCompatActivity
         pName = (TextView) findViewById(R.id.pNameFromDatabase);
         trackerID = (TextView) findViewById(R.id.trackerIDFromDatabase);
 
+        changePass = (Button) findViewById(R.id.changePassButton);
+
         //Database stuff here
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -100,6 +102,7 @@ public class AccountInfo extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
     }
     public void setTextForXML(String fullName, String petsName, String id)
     {
@@ -108,5 +111,4 @@ public class AccountInfo extends AppCompatActivity
         pName.setText(petsName);
         trackerID.setText(id);
     }
-
 }

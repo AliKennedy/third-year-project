@@ -56,5 +56,6 @@
     <string name="pets_name_Account">Pets Name:</string>
     <string name="tracker_id">Tracker ID:</string>
     <string name="change_password">Change Password</string>
+    <string name="old_password_is_incorrect">Old Password is Incorrect</string>
 
 </resources>

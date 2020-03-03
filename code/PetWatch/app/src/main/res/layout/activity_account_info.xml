@@ -127,6 +127,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/changePassButtonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -134,6 +135,7 @@
         android:layout_alignParentBottom="true">
 
         <Button
+            android:id="@+id/changePassButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17sp"
