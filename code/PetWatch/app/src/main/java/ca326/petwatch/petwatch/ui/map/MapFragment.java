@@ -139,37 +139,45 @@ public class MapFragment extends Fragment
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot)
                                 {
-                                    Log.d(TAG, "data is " + dataSnapshot.getChildren().iterator().next());
-
-                                    for (DataSnapshot data : dataSnapshot.getChildren())
+                                    if (dataSnapshot.exists())
                                     {
-                                        if (data.getKey().equals("lat"))
-                                        {
-                                            latString = (String) data.getValue();
-                                            lat = Double.parseDouble(latString);
-                                            Log.d(TAG, "lat is " + lat);
-                                        }
-                                        else if (data.getKey().equals("lng"))
-                                        {
-                                            lngString = (String) data.getValue();
-                                            lng = Double.parseDouble(lngString);
-                                            //gpsData.put("lng", data.getValue());
-                                            Log.d(TAG, "lng is " + lng);
-                                        }
-                                        else
-                                        {
-                                            //Do Nothing for now
-                                            //Intentions to add speed here
-                                        }
-                                    }
+                                        Log.d(TAG, "data is " + dataSnapshot.getChildren().iterator().next());
 
-                                    createMap(lat, lng);
+                                        for (DataSnapshot data : dataSnapshot.getChildren())
+                                        {
+                                            if (data.getKey().equals("lat"))
+                                            {
+                                                latString = (String) data.getValue();
+                                                lat = Double.parseDouble(latString);
+                                                Log.d(TAG, "lat is " + lat);
+                                            }
+                                            else if (data.getKey().equals("lng"))
+                                            {
+                                                lngString = (String) data.getValue();
+                                                lng = Double.parseDouble(lngString);
+                                                //gpsData.put("lng", data.getValue());
+                                                Log.d(TAG, "lng is " + lng);
+                                            }
+                                            else
+                                                {
+                                                //Do Nothing for now
+                                                //Intentions to add speed here
+                                            }
+                                        }
+
+                                        createMap(lat, lng);
+                                    }
+                                    else
+                                    {
+                                        createmapNoCoordinates();
+                                    }
 
                                 }
                                 // If the data does not exist the method goes here
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError)
                                 {
+                                    createmapNoCoordinates();
                                     //Display message saying access to RealTime Database was denied
                                     //toastMessage("Accessing Co-ordinates could not happen, Please Try Again Later");
                                 }
@@ -228,6 +236,42 @@ public class MapFragment extends Fragment
         }
 
 
+    }
+
+    private void createmapNoCoordinates()
+    {
+        try
+        {
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+
+            // Displays Google Map in fragment
+            mMapView.getMapAsync(new OnMapReadyCallback()
+            {
+                @Override
+                public void onMapReady(GoogleMap mMap)
+                {
+                    googleMap = mMap;
+                    googleMap.clear();
+
+                    // For showing a move to my location button
+                    //googleMap.setMyLocationEnabled(true);
+                    //call function for Arduino
+
+                    // For dropping a marker at a point on the Map
+                    LatLng gpsTracker = new LatLng(53.3531, -6.2580);
+                    googleMap.addMarker(new MarkerOptions().position(gpsTracker).title("Tracker"));
+
+                    // For zooming automatically to the location of the marker
+                    CameraPosition cameraPosition = new CameraPosition.Builder().target(gpsTracker).zoom(15).build();
+                    googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                }
+            });
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private void toastMessage(String message)

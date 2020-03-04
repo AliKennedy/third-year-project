@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import ca326.petwatch.petwatch.R;
 
-public class NotificationInfo extends AppCompatActivity
+public class ChangeTrackerID extends AppCompatActivity
 {
 
     @Override

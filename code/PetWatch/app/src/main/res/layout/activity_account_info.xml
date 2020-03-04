@@ -1,11 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/gradientreverse"
     tools:context=".ui.settings.AccountInfo">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/fNameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="20dp"
+        android:padding="10dp"
+        android:layout_above="@+id/petsNameLayout">
+        <TextView
+            android:id="@+id/fName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/colorWords"
+            android:textSize="23sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nameFromDatabaseLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="20dp"
+        android:padding="10dp"
+        android:layout_above="@+id/pNameFromDatabaseLayout">
+        <TextView
+            android:id="@+id/nameFromDatabase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWords"
+            android:textSize="23sp"
+            android:text="Name Here"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/petsNameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:padding="10dp"
+        android:layout_alignParentLeft="true">
+        <TextView
+            android:id="@+id/petsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWords"
+            android:textSize="23sp"
+            android:text="@string/pets_name_Account"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pNameFromDatabaseLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/pNameFromDatabase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWords"
+            android:textSize="23sp"
+            android:text="Pets Name Here" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/trackerIDLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="20dp"
+        android:padding="10dp"
+        android:layout_below="@+id/petsNameLayout">
+        <TextView
+            android:id="@+id/trackerID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tracker_id"
+            android:textColor="@color/colorWords"
+            android:textSize="23sp"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/trackerIDFromDatabaseLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="40dp"
+        android:padding="10dp"
+        android:layout_below="@+id/pNameFromDatabaseLayout">
+
+        <TextView
+            android:id="@+id/trackerIDFromDatabase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="@color/colorWords"
+            android:text="ID here"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/changePassButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/changePassButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="@string/change_password"
+            android:textColor="@color/colorWords"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

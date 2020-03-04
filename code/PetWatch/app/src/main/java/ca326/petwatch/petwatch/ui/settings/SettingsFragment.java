@@ -35,7 +35,7 @@ public class SettingsFragment extends Fragment {
         account = (Button) root.findViewById(R.id.Account);
         notifications = (Button) root.findViewById(R.id.Notifications);
         privacySecurity = (Button) root.findViewById(R.id.PrivacySecurity);
-        support = (Button) root.findViewById(R.id.Support);
+        support = (Button) root.findViewById(R.id.Contact);
         about = (Button) root.findViewById(R.id.About);
         logOut = (Button) root.findViewById(R.id.logOut);
 
@@ -57,7 +57,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), NotificationInfo.class);
+                Intent intent = new Intent(getActivity(), ChangeTrackerID.class);
                 startActivity(intent);
             }
         });
@@ -77,7 +77,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), SupportInfo.class);
+                Intent intent = new Intent(getActivity(), ContactUsInfo.class);
                 startActivity(intent);
             }
         });
