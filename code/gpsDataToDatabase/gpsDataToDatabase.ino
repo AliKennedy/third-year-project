@@ -16,14 +16,14 @@ void setup()
   Serial.begin(9600);
   Serial.println(F("Config SIM808..."));
   
-  delay(2000); //give it a second to start up
+  delay(1000); //give it a second to start up
   
   Serial.println(F("done!"));
 
 
   while(!mySerial.println(F("AT+CGPSPWR=1")))  
   {
-    delay(1000);
+    delay(200);
   }
   
   Serial.println(F("GPS power on")); 
@@ -40,12 +40,12 @@ void loop()
   char* endOfArray = "\0";
 
   mySerial.println(F("AT+CGPSINF=2")); //Get GPS data
-  delay(5000);
+  delay(1500);
 
   while( mySerial.available()== 0 ) 
   {
      mySerial.println(F("AT+CGPSINF=2")); //Try again
-     delay(5000);
+     delay(1000);
   }
   
   int dataCount = 0;
@@ -58,12 +58,12 @@ void loop()
   }
   dataBuffer[dataCount] = endOfArray; //stick terminating character at end of array
 
-  delay(5000);
+  delay(2000);
   char tester = dataBuffer[41];
   
   if (tester == '0' || tester == 'F')  
   {
-    loop();
+    resetFunc();
   }
 
   char *output;  
@@ -85,9 +85,9 @@ void loop()
     field ++;
   }
 
-  delay(5000);
+  delay(1500);
   Serial.println(longitude);
-  delay(5000);
+  //delay(5000);
   Serial.println(latitude);
 
   clearIncomingBuffer();
@@ -105,11 +105,11 @@ void sendToDatabase(String longitude, String latitude)
   
   mySerial.println(F("AT+HTTPINIT"));
   clearIncomingBuffer();
-  delay(6000); 
+  delay(2000); 
 
   mySerial.println(F("AT+HTTPPARA=\"CID\",1"));
   clearIncomingBuffer();
-  delay(2000);
+  delay(1000);
 
   String url = "AT+HTTPPARA=\"URL\",\"http://student.computing.dcu.ie/~kennea55/firebaseTest.php?longitude=";
   url += longitude; 
@@ -122,23 +122,23 @@ void sendToDatabase(String longitude, String latitude)
   url +=  "\"";
 
   Serial.println(url);
-  delay(5000);
+  delay(1000);
   
   mySerial.println(url);
   clearIncomingBuffer();
-  delay(6000);
+  delay(1000);
  
   mySerial.println(F("AT+HTTPACTION=0"));
   clearIncomingBuffer();
-  delay(5000);
+  delay(1000);
 
   mySerial.println(F("AT+HTTPTERM"));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.println("");
   clearIncomingBuffer();
-  delay(5000);
+  delay(1000);
 
   mySerial.flush();
   clearIncomingBuffer(); 
@@ -148,39 +148,39 @@ void setupGSM()
 {
   mySerial.println(F("AT+CGATT?"));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.println(F("AT+CPIN?"));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
   
   mySerial.println(F("AT+SAPBR=0,1"));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.println(F("AT+SAPBR=3,1,\"CONTYPE\",\"GPRS\""));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.println(F("AT+SAPBR=3,1,\"APN\",\"isp.vodafone.ie\""));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.println(F("AT+SAPBR=3,1,\"USER\",\"vodafone\""));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.println(F("AT+SAPBR=3,1,\"PWD\",\"vodafone\""));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
   
   mySerial.println(F("AT+SAPBR=1,1"));
   clearIncomingBuffer();
-  delay(6000);
+  delay(1000);
 
   mySerial.println(F("AT+SAPBR=2,1"));
   clearIncomingBuffer();
-  delay(3000);
+  delay(1000);
 
   mySerial.flush();
   clearIncomingBuffer();
