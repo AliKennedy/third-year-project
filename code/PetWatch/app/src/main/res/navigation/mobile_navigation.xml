@@ -5,13 +5,13 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/navigation_map">
 
-
+<!--
     <fragment
         android:id="@+id/navigation_panic"
         android:name="ca326.petwatch.petwatch.ui.panic.PanicFragment"
         android:label="@string/panic"
         tools:layout="@layout/fragment_panic"
-        app:itemTextColor="@color/colorWords"/>
+        app:itemTextColor="@color/colorWords"/> -->
 
     <fragment
         android:id="@+id/navigation_speed"
@@ -27,12 +27,13 @@
         tools:layout="@layout/fragment_map"
         app:itemTextColor="@color/colorWords"/>
 
+    <!--
     <fragment
         android:id="@+id/navigation_log"
         android:name="ca326.petwatch.petwatch.ui.log.LogFragment"
         android:label="@string/log"
         tools:layout="@layout/fragment_log"
-        app:itemTextColor="@color/colorWords"/>
+        app:itemTextColor="@color/colorWords"/> -->
 
     <fragment
         android:id="@+id/navigation_settings"
