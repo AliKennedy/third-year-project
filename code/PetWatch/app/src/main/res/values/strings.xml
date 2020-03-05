@@ -58,5 +58,9 @@
     <string name="change_password">Change Password</string>
     <string name="old_password_is_incorrect">Old Password is Incorrect</string>
     <string name="contactUs">CONTACT US</string>
+    <string name="send_email">Send Email</string>
+    <string name="new_tracker_i_d">New Tracker I.D.</string>
+    <string name="go_back">Go Back</string>
+    <string name="change_tracker_i_d">Change Tracker I.D.</string>
 
 </resources>

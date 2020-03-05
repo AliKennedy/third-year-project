@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientreverse">
 
-    <TextView
-        android:id="@+id/text_speed"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/speedHereLayout"
+        android:padding="30dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+
+        <TextView
+            android:id="@+id/speedHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speed here"
+            android:textSize="27sp"
+            android:textColor="@color/colorWords"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:padding="10dp"
+            android:background="@drawable/edittextshape"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/countSpeedLayout"
+        android:padding="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/speedHereLayout">
+
+        <Button
+            android:id="@+id/countSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Press Here to Start Timing"
+            android:textSize="17sp"
+            android:textColor="@color/colorWords"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/stopCountSpeedLayout"
+        android:padding="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/speedHereLayout">
+
+        <Button
+            android:id="@+id/stopCountSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Press Here to Stop Timing"
+            android:textSize="17sp"
+            android:textColor="@color/colorWords"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+</RelativeLayout>

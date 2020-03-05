@@ -19,6 +19,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import ca326.petwatch.petwatch.Main2Activity;
 import ca326.petwatch.petwatch.R;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -29,7 +30,7 @@ public class AccountInfo extends AppCompatActivity
     private TextView pName;
     private TextView trackerID;
 
-    private Button changePass;
+    private Button changePass, goBackButton;
 
 
     private FirebaseUser user;
@@ -49,6 +50,7 @@ public class AccountInfo extends AppCompatActivity
         trackerID = (TextView) findViewById(R.id.trackerIDFromDatabase);
 
         changePass = (Button) findViewById(R.id.changePassButton);
+        goBackButton = (Button) findViewById(R.id.goBackButton);
 
         //Database stuff here
         firebaseAuth = FirebaseAuth.getInstance();
@@ -100,6 +102,17 @@ public class AccountInfo extends AppCompatActivity
             {
                 Intent intent = new Intent(AccountInfo.this, ChangePassword.class);
                 startActivity(intent);
+            }
+        });
+
+
+        goBackButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+//                Intent intent = new Intent(AccountInfo.this, SettingsFragment.class);
+//                startActivity(intent);
             }
         });
 

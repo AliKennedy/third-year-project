@@ -43,7 +43,7 @@
             android:width="380dp"
             android:textColor="@color/colorWords"
             android:textSize="22sp"
-            android:text="@string/notifications" />
+            android:text="@string/change_tracker_i_d" />
 
     </LinearLayout>
 

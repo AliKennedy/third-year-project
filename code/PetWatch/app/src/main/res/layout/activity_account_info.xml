@@ -127,6 +127,25 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/goBackButtonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_above="@+id/changePassButtonLayout">
+
+        <Button
+            android:id="@+id/goBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="240dp"
+            android:text="@string/go_back"
+            android:textSize="17sp"
+            android:textColor="@color/colorWords"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/changePassButtonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

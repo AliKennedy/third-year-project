@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientreverse"
+
+    tools:context=".ui.settings.ChangeTrackerID">
+
+    <LinearLayout
+        android:id="@+id/updateArdIDLayout"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+
+        <EditText
+            android:id="@+id/updateArdID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="300dp"
+            android:textColorHint="@color/colorWords"
+            android:hint="@string/new_tracker_i_d"
+            android:textColor="@color/colorWords"
+            android:inputType="textShortMessage"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/updateArdIDButtonLayout"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/updateArdIDLayout">
+
+        <Button
+            android:id="@+id/updateArdIDButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWords"
+            android:text="Update Tracker I.D."
+            android:textSize="22sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

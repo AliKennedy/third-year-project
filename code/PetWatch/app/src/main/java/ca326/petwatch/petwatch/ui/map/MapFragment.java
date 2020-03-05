@@ -209,7 +209,7 @@ public class MapFragment extends Fragment
         String sLng = longitude.toString();
 
         //send lat and lng to to main activity
-        Intent intent = new Intent(getActivity().getBaseContext(), Main2Activity.class);
+        Intent intent = new Intent(getActivity(), Main2Activity.class);
         intent.putExtra("latitude", sLat);
         intent.putExtra("longitude", sLng);
         //getActivity().startActivity(intent);
