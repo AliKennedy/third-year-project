@@ -1,6 +1,7 @@
 package ca326.petwatch.petwatch;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ import androidx.navigation.ui.NavigationUI;
 
 
 import java.util.HashMap;
+
+import ca326.petwatch.petwatch.ui.speed.SpeedFragment;
 
 import static ca326.petwatch.petwatch.R.id.navigation_speed;
 
@@ -41,6 +44,18 @@ public class Main2Activity extends AppCompatActivity
         NavigationUI.setupWithNavController(navView, navController);
 
 
+        //receive data from map fragment
+        Intent intent = getIntent();
+        String latString = intent.getStringExtra("latitude");
+        String lngString = intent.getStringExtra("longitude");
+
+        //send this data to Speed Fragment
+        Bundle bundle=new Bundle();
+        bundle.putString("latitude", "From Activity");
+        bundle.putString("longitude", "From Activity");
+        //set  Arguments
+        SpeedFragment speedFrag = new SpeedFragment();
+        speedFrag.setArguments(bundle);
 
     }
 

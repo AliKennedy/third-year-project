@@ -1,5 +1,6 @@
 package ca326.petwatch.petwatch.ui.map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +38,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
+import ca326.petwatch.petwatch.Main2Activity;
 import ca326.petwatch.petwatch.R.*;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -165,6 +167,7 @@ public class MapFragment extends Fragment
                                             }
                                         }
 
+
                                         createMap(lat, lng);
                                     }
                                     else
@@ -195,12 +198,22 @@ public class MapFragment extends Fragment
                         toastMessage("Access to retrieve Tracker ID is denied, Please Try Again Later");
                     }
                 });
+
         return root;
     }
 
 
     private void createMap(final Double latitude, final Double longitude)
     {
+        String sLat = latitude.toString();
+        String sLng = longitude.toString();
+
+        //send lat and lng to to main activity
+        Intent intent = new Intent(getActivity().getBaseContext(), Main2Activity.class);
+        intent.putExtra("latitude", sLat);
+        intent.putExtra("longitude", sLng);
+        //getActivity().startActivity(intent);
+
         // In a try as it can throw a NullPointerException
         try
         {
@@ -307,5 +320,16 @@ public class MapFragment extends Fragment
     private void setArduinoIDKey(String arduinoIDKey)
     {
         this.arduinoIDKey = arduinoIDKey;
+    }
+
+    //used in distance function in Speed fragment
+    public Double getLat()
+    {
+        return this.lat;
+    }
+
+    public Double getLng()
+    {
+        return this.lng;
     }
 }
