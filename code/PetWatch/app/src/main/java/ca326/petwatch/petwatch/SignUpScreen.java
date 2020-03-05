@@ -239,7 +239,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
 
     protected void setNewArdID()
     {
-        ardID = RetrieveArduinoID.generateRandomString(5);
+        ardID = "qwdb5";
     }
 
 
