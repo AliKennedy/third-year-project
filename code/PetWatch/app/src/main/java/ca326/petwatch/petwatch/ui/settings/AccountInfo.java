@@ -111,8 +111,8 @@ public class AccountInfo extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-//                Intent intent = new Intent(AccountInfo.this, SettingsFragment.class);
-//                startActivity(intent);
+                Intent intent = new Intent(AccountInfo.this, ChangeTrackerID.class);
+                startActivity(intent);
             }
         });
 

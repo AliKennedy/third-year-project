@@ -89,6 +89,11 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
             //Stops function from executing further
             return;
         }
+        else if (cPWord.length() < 6)
+        {
+            toastMessage("Password must be at least 6 characters");
+            return;
+        }
         //Everything is valid
         else
         {

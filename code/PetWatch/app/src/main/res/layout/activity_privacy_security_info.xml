@@ -26,7 +26,7 @@
             android:width="332dp"
             android:ems="10"
             android:gravity="start|top"
-            android:text="Under the general Data Protection Regulation (GDPR) (EU) 2016/679, we have a legal duty to protect any information we collect from you. Your log in information is stored in a secure database on a Google server. The information will be destroyed (deleted) upon the completion of this project (29/03/20), along with the GPS tracker data.."
+            android:text="Under the general Data Protection Regulation (GDPR) (EU) 2016/679, we have a legal duty to protect any information we collect from you. Your log in information is stored in a secure database on a Google server. The information will be destroyed (deleted) upon the completion of this project (29/03/20), along with the GPS tracker data."
             android:textColor="@color/colorWords"/>
 
     </LinearLayout>
