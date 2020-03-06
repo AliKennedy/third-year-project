@@ -3,6 +3,7 @@ package ca326.petwatch.petwatch;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import ca326.petwatch.petwatch.ui.settings.ChangeTrackerIDIntegrationTest;
 import ca326.petwatch.petwatch.ui.settings.SettingsFragmentTest;
 
 @RunWith(Suite.class)
@@ -13,6 +14,8 @@ import ca326.petwatch.petwatch.ui.settings.SettingsFragmentTest;
                 SettingsFragmentTest.class,
                 SignUpScreenTest.class,
                 ForgotPasswordTest.class,
+                SignInScreenIntegrationTest.class,
+                ChangeTrackerIDIntegrationTest.class,
         })
 
 public class ActivityTestSuite

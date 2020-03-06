@@ -280,6 +280,10 @@ public class SpeedFragment extends Fragment
 
     }
 
+    public interface TextInterface {
+        String getText();
+    }
+
     private Double distance(String lat1, String lat2, String lng1, String lng2)
     {
         final int radiusOfEarth = 6371; //km

@@ -216,7 +216,6 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     protected String getEAddress()
     {
         return emailAddress.getText().toString().trim();

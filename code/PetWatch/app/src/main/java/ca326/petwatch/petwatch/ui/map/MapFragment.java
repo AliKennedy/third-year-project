@@ -36,9 +36,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
-import java.util.Map;
 
-import ca326.petwatch.petwatch.Main2Activity;
 import ca326.petwatch.petwatch.R.*;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
