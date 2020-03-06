@@ -38,7 +38,7 @@ public class ChangeTrackerIDIntegrationTest {
     }
 
     @Test
-    public void onCreate() throws Exception
+    public void testUpdateArduinoID() throws Exception
     {
 
         String newTrackerID = "khdvT";
