@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".ui.settings.AboutInfo">
+    tools:context=".ui.settings.AboutInfo"
+    android:id="@+id/aboutRelative">
 
 
     <LinearLayout

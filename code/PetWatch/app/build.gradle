@@ -50,9 +50,24 @@ dependencies {
     implementation 'com.google.guava:guava:27.0.1-android'
     testImplementation 'junit:junit:4.12'
 
+    debugImplementation("androidx.test:core:1.2.0")
+    //androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //androidTestImplementation 'com.android.support.test:testing-support-lib:0.1'
+
+    // Espresso
+    def androidx_test_espresso = "3.2.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
+
+    // androidx.test
+    def androidx_test = "1.1.0"
+    androidTestImplementation "androidx.test:runner:$androidx_test"
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$androidx_test"
+
 
 
 }
+
+

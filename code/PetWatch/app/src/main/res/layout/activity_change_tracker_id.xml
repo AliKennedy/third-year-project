@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradientreverse"
 
-    tools:context=".ui.settings.ChangeTrackerID">
+    tools:context=".ui.settings.ChangeTrackerID"
+    android:id="@+id/changeTrackerRelative">
 
     <LinearLayout
         android:id="@+id/updateArdIDLayout"
