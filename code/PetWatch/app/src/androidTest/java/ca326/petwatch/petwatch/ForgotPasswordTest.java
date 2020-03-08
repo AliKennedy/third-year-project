@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4ClassRunner.class)
 public class ForgotPasswordTest
 {
+    // To test if the activity is displayed correctly
     @Test
     public void testIfActivityIsDisplayed()
     {
@@ -37,6 +38,7 @@ public class ForgotPasswordTest
         onView(withId(R.id.enterEmailLayout)).check(matches(isDisplayed()));
     }
 
+    // to test if the Edit Text works correctly
     @Test
     public void testIfEditTextWorks()
     {
@@ -47,6 +49,7 @@ public class ForgotPasswordTest
         onView(withId(R.id.enterEmail)).perform(typeText(email));
     }
 
+    // To test if the button is clickable
     @Test
     public void testIfButtonIsClickable()
     {
@@ -55,6 +58,7 @@ public class ForgotPasswordTest
         onView(withId(R.id.sendForgotEmail)).check(matches(isClickable()));
     }
 
+    // To test if features of the activity are visible to the user
     @Test
     public void testIfButtonAndEditTextIsVisible()
     {

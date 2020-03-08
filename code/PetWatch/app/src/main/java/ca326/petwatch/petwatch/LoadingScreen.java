@@ -11,16 +11,20 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoadingScreen extends AppCompatActivity
 {
-    private static int SPLASH_TIME_OUT = 4000;
+    // A timer for the loading screen
+    private static int SPLASH_TIME_OUT = 2000;
 
+    // Declaring a Firebase Authentication Variable
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        // Set the layout for this class
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_screen);
 
+        // A method to allow the loading screen be a loading screen
         new Handler().postDelayed(new Runnable()
         {
             @Override

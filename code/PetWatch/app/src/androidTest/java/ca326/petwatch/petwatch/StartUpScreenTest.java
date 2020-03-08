@@ -19,8 +19,7 @@ import static org.junit.Assert.*;
 public class StartUpScreenTest
 {
 
-
-
+    // Test if the activity is in view for the user
     @Test
     public void testActivityInView()
     {
@@ -42,6 +41,7 @@ public class StartUpScreenTest
 
     }
 
+    // To test the visibility of text and buttons
     @Test
     public void testVisibilityOfTextAndButtons()
     {
@@ -60,6 +60,7 @@ public class StartUpScreenTest
     }
 
 
+    // To test if all Strings upon the screen are displayed correctly
     @Test
     public void testIsTextDisplayedCorrectly()
     {
@@ -72,6 +73,7 @@ public class StartUpScreenTest
         onView(withId(R.id.textView2)).check(matches(withText(R.string.already_have_an_account)));
     }
 
+    // To test if the sign in button works
     @Test
     public void testSignInButtonWorks()
     {
@@ -82,6 +84,7 @@ public class StartUpScreenTest
         onView(withId(R.id.signInScreenRelative)).check(matches(isDisplayed()));
     }
 
+    // To test if the sign up button works
     @Test
     public void testSignUpButtonWorks()
     {

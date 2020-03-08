@@ -27,6 +27,7 @@ import static org.junit.Assert.*;
 public class SettingsFragmentTest
 {
 
+    // To test if the Fragment is displayed upon the screen correctly
     @Test
     public void testIfFragmentDisplayed()
     {
@@ -51,6 +52,7 @@ public class SettingsFragmentTest
         onView(withId(R.id.logOutLayout)).check(matches(isDisplayed()));
     }
 
+    // To test if all buttons on the screen are displayed correctly
     @Test
     public void testIfButtonsDisplayed()
     {
@@ -72,6 +74,7 @@ public class SettingsFragmentTest
         onView(withId(R.id.logOut)).check(matches(isDisplayed()));
     }
 
+    // To test if Account button works correctly
     @Test
     public void testIfButtonsWork()
     {
@@ -89,7 +92,7 @@ public class SettingsFragmentTest
 
 
     }
-
+    // To test if Change Tracker I.D. button works correctly
     @Test
     public void testIfChangeTrackerWorks()
     {
@@ -105,6 +108,7 @@ public class SettingsFragmentTest
         pressBack();
     }
 
+    // To test if Privacy & Security button works correctly
     @Test
     public void testIfPrivacySecurityWorks()
     {
@@ -119,6 +123,7 @@ public class SettingsFragmentTest
         pressBack();
     }
 
+    // To test if the Contact Us button works correctly
     @Test
     public void testIfContactWorks()
     {
@@ -134,6 +139,7 @@ public class SettingsFragmentTest
         pressBack();
     }
 
+    // To test if the About button works correctly
     @Test
     public void testIfAboutWorks()
     {
@@ -150,6 +156,7 @@ public class SettingsFragmentTest
 
     }
 
+    // To test if the log out button works correctly
     public void testIfLogOutWorks()
     {
         ActivityScenario activityScenario = ActivityScenario.launch(Main2Activity.class);

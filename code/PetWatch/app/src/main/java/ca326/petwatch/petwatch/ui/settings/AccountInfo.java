@@ -26,25 +26,29 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class AccountInfo extends AppCompatActivity
 {
+    // Creating variables to use for XML Variables
     private TextView name;
     private TextView pName;
     private TextView trackerID;
-
     private Button changePass, goBackButton;
 
-
+    // Creating variables to use with the firebase database
     private FirebaseUser user;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore dataBase;
     private DocumentReference docRef;
+
+    // Creating a string object to store the current users Unique I.D.
     private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        // Create the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_info);
 
+        // Assigning java variables to XML Variables
         name = (TextView) findViewById(R.id.nameFromDatabase);
         pName = (TextView) findViewById(R.id.pNameFromDatabase);
         trackerID = (TextView) findViewById(R.id.trackerIDFromDatabase);
@@ -63,6 +67,7 @@ public class AccountInfo extends AppCompatActivity
         uid = firebaseAuth.getUid();
         docRef = dataBase.collection("userDetails").document(uid);
 
+        // Retrieve the users details stored in the database
         docRef.get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
                 {
@@ -71,17 +76,18 @@ public class AccountInfo extends AppCompatActivity
                     {
                         if (task.isSuccessful())
                         {
+                            // Assign the information from database to string objects
                             String fName = (String) task.getResult().get("fName");
                             String surname = (String) task.getResult().get("lName");
                             String pName = (String) task.getResult().get("pName");
                             String ardID = (String) task.getResult().get("ardID");
 
                             String name = fName + " " + surname;
+                            // Display these variables in the XML File
                             setTextForXML(name, pName, ardID);
 
+                            // Used to log info during testing to ensure everything was functioning correctly
                             Log.d(TAG, name + " " + surname  + " " + pName  + " " + ardID);
-
-
                         }
                     }
                 })
@@ -95,6 +101,7 @@ public class AccountInfo extends AppCompatActivity
                 });
 
 
+        // Set up the change Password Button
         changePass.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -105,7 +112,7 @@ public class AccountInfo extends AppCompatActivity
             }
         });
 
-
+        // Set up the go back button
         goBackButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -119,6 +126,7 @@ public class AccountInfo extends AppCompatActivity
     }
     public void setTextForXML(String fullName, String petsName, String id)
     {
+        // Display the Details on to the Screen
         assert fullName != null;
         name.setText(fullName);
         pName.setText(petsName);

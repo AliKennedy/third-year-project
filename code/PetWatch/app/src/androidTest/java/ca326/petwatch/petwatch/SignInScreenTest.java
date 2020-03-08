@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4ClassRunner.class)
 public class SignInScreenTest
 {
-
+    // To test if the activity is in view of the screen
     @Test
     public void testActivityInView()
     {
@@ -41,6 +41,7 @@ public class SignInScreenTest
         onView(withId(R.id.forgotPasswordButtonLayout)).check(matches(isDisplayed()));
     }
 
+    // To test the visibility of the buttons and text
     @Test
     public void testVisibilityOfButtonsAndText()
     {
@@ -64,6 +65,7 @@ public class SignInScreenTest
         ActivityScenario activityScenario = ActivityScenario.launch(SignInScreen.class);
     }
 
+    // To test if the Edit Texts work and if the button is clickable
     @Test
     public void testSignInButtonWorkCorrectly()
     {
@@ -82,6 +84,7 @@ public class SignInScreenTest
        // onView(withId(R.id.mapFragmentLayout)).check(matches(isDisplayed()));
     }
 
+    // To test if the forgot password button works
     @Test
     public void testForgotPasswordButtonWorks()
     {

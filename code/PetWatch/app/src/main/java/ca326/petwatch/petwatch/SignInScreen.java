@@ -19,52 +19,62 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignInScreen extends AppCompatActivity
 {
-
+    // Setting variables to be used as XML variables
     private EditText emailAddress;
     private EditText passwordText;
     private Button buttonSignIn;
     private TextView warningText;
     private Button forgotPasswordButton;
 
+    // Setting a Firebase Authentication variable
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        // Set the XML layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_screen);
 
+        // Mapping variables to parts of the corresponding XML File
         emailAddress = (EditText)findViewById(R.id.emailAddress);
         passwordText = (EditText)findViewById(R.id.passwordText);
         warningText = (TextView)findViewById(R.id.warningText);
         buttonSignIn = (Button)findViewById(R.id.buttonSignin);
         forgotPasswordButton = (Button) findViewById(R.id.forgotPasswordButton);
 
+        // Getting an instance of the firebaseAuth database
         firebaseAuth = FirebaseAuth.getInstance();
 
+        // Setting up the sign in button
         buttonSignIn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
+                // Moving to the validate method
                 validate(emailAddress.getText().toString(), passwordText.getText().toString());
             }
         });
 
+        // Setting up the forgot password button
         forgotPasswordButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                // Changing to the Forgot Password Button
                 Intent intent = new Intent(SignInScreen.this, ForgotPassword.class);
                 startActivity(intent);
             }
         });
     }
 
+    // A method to sign the user in
     private void validate(String userName, String userPassword)
     {
         //Database query here
+        // A firebase method to sign a user in
         firebaseAuth.signInWithEmailAndPassword(userName, userPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
                 {
@@ -92,6 +102,7 @@ public class SignInScreen extends AppCompatActivity
 
     }
 
+    // A method to create a toast message
     private void toastMessage(String message)
     {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

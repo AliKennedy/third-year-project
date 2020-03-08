@@ -78,6 +78,7 @@ public class MapFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, final Bundle savedInstanceState)
     {
+        // Setting Database up to retrieve coordinates
         setCollectionPath("userDetails");
         setRefFromUrl("https://petwatch-519c6.firebaseio.com/");
         final View root = inflater.inflate(layout.fragment_map, container, false);
@@ -134,15 +135,19 @@ public class MapFragment extends Fragment
                             // A method that evaluates if there are any changes of the data in the database
                             Log.d(TAG, "url is " + refFromUrl + ardID);
 
+                            // Add a listener to the database
                             myRef.addValueEventListener(new ValueEventListener()
                             {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot)
                                 {
+                                    // If the data is changed
                                     if (dataSnapshot.exists())
                                     {
+                                        // Log it to ensure its working correctly
                                         Log.d(TAG, "data is " + dataSnapshot.getChildren().iterator().next());
 
+                                        // Retrieve the Latitude and Longitude from the database
                                         for (DataSnapshot data : dataSnapshot.getChildren())
                                         {
                                             if (data.getKey().equals("lat"))
@@ -165,12 +170,13 @@ public class MapFragment extends Fragment
                                             }
                                         }
 
-
+                                        // Create the map in the app using the coordinates
                                         createMap(lat, lng);
                                     }
                                     else
                                     {
-                                        createmapNoCoordinates();
+                                        // If coordinates do not exist create map using no coordinates
+                                        createMapNoCoordinates();
                                     }
 
                                 }
@@ -178,7 +184,7 @@ public class MapFragment extends Fragment
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError)
                                 {
-                                    createmapNoCoordinates();
+                                    createMapNoCoordinates();
                                     //Display message saying access to RealTime Database was denied
                                     //toastMessage("Accessing Co-ordinates could not happen, Please Try Again Later");
                                 }
@@ -203,9 +209,6 @@ public class MapFragment extends Fragment
 
     private void createMap(final Double latitude, final Double longitude)
     {
-        String sLat = latitude.toString();
-        String sLng = longitude.toString();
-
         // In a try as it can throw a NullPointerException
         try
         {
@@ -243,7 +246,7 @@ public class MapFragment extends Fragment
 
     }
 
-    private void createmapNoCoordinates()
+    private void createMapNoCoordinates()
     {
         try
         {
@@ -279,11 +282,14 @@ public class MapFragment extends Fragment
         }
     }
 
+    // A method to create a toast message
     private void toastMessage(String message)
     {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
+
+    // Creating Setters and Getters
     private String getCollectionPath()
     {
         return collectionPath;

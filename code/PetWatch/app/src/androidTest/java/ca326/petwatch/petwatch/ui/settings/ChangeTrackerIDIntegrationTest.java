@@ -37,6 +37,7 @@ public class ChangeTrackerIDIntegrationTest {
 
     }
 
+    // Test to ensure database is integrated into the change tracker I.D. section correctly
     @Test
     public void testUpdateArduinoID() throws Exception
     {

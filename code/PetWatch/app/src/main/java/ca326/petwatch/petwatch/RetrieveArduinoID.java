@@ -23,9 +23,12 @@ import java.util.Map;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
+
+// A class to generate a random Arduino I.D.
+// This class was made when the idea to link app and Arduino was through bluetooth
 public class RetrieveArduinoID
 {
-
+    // Firebase Database variables to enter the generated I.D. into the database
     @SuppressLint("StaticFieldLeak")
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static DocumentReference docRef = db.collection("ArduinoIDs").document("inUse");
@@ -40,6 +43,7 @@ public class RetrieveArduinoID
     private static ArrayList<String> usedID = new ArrayList<>();
 
 
+    // Method to generate a random string
     public static String generateRandomString(int length)
     {
         if (length < 1) throw new IllegalArgumentException();
@@ -60,67 +64,13 @@ public class RetrieveArduinoID
 
         String ID = sb.toString();
 
-//        if (ifIDExists("uivwA"))
-//        {
-//            updateIDs(ID);
-//            return ID;
-//        }
-//        else
-//        {
-//            generateRandomString(5);
-//        }
-//
-//        return ID;
+
         updateIDs(ID);
         return ID;
 
     }
 
-//    private static boolean ifIDExists(final String ID)
-//    {
-//
-//        final Boolean[] condition = {false};
-//
-//        docRef.get()
-//                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>()
-//                {
-//                    @Override
-//                    public void onSuccess(DocumentSnapshot documentSnapshot)
-//                    {
-//                        if (documentSnapshot.exists())
-//                        {
-//                            Map<String, Object> checker = new HashMap<>();
-//
-//                            checker = (Map<String, Object>) documentSnapshot.get("usedID");
-//
-//                            if (checker.containsValue(ID))
-//                            {
-//                                condition[0] = true;
-//                            }
-//                            else
-//                            {
-//                                condition[0] = false;
-//                            }
-//                        }
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener()
-//                {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e)
-//                    {
-//                        //Do nothing for now
-//                    }
-//                });
-//
-//        Log.d(TAG, "condition is " + condition[0]);
-//        return condition[0];
-//
-//
-//
-//    }
-
-
+    // A method to update the I.D. in the database and too check if its already in the database
     private static void updateIDs(final String ID)
     {
 
@@ -181,8 +131,5 @@ public class RetrieveArduinoID
                         Log.d(TAG, "nothing works");
                     }
                 });
-        //Log.d(TAG, "condition is" + condition[0]);
-        //return condition[0];
-        
     }
 }

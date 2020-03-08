@@ -20,6 +20,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4ClassRunner.class)
 public class MapFragmentTest
 {
+    // A test to ensure if nav bar is working correctly
     @Test
     public void testIfNavBarWorks()
     {

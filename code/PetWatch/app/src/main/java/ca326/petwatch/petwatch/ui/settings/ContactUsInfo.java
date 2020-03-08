@@ -15,10 +15,12 @@ import java.util.regex.Pattern;
 
 import ca326.petwatch.petwatch.R;
 
-public class ContactUsInfo extends AppCompatActivity {
+public class ContactUsInfo extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us_info);
 
@@ -38,7 +40,8 @@ public class ContactUsInfo extends AppCompatActivity {
                 String subject = your_subject.getText().toString();
                 String message = your_message.getText().toString();
 
-                if (TextUtils.isEmpty(name)) {
+                if (TextUtils.isEmpty(name))
+                {
 
                     your_name.setError("Enter Your Name");
                     your_name.requestFocus();
@@ -48,7 +51,8 @@ public class ContactUsInfo extends AppCompatActivity {
                 }
 
                 Boolean onError = false;
-                if (!isValidEmail(email)) {
+                if (!isValidEmail(email))
+                {
 
                     onError = true;
                     your_email.setError("Invalid Email");
@@ -56,7 +60,8 @@ public class ContactUsInfo extends AppCompatActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(subject)) {
+                if (TextUtils.isEmpty(subject))
+                {
 
                     your_subject.setError("Enter Your Subject");
                     your_subject.requestFocus();
@@ -64,7 +69,8 @@ public class ContactUsInfo extends AppCompatActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(message)) {
+                if (TextUtils.isEmpty(message))
+                {
 
                     your_message.setError("Enter Your Message");
                     your_message.requestFocus();
@@ -91,26 +97,30 @@ public class ContactUsInfo extends AppCompatActivity {
     }
 
     @Override
-    public void onResume() {
+    public void onResume()
+    {
         super.onResume();
         //Get a Tracker (should auto-report)
 
     }
 
     @Override
-    protected void onStart() {
+    protected void onStart()
+    {
         super.onStart();
 
     }
 
     @Override
-    protected void onStop() {
+    protected void onStop()
+    {
         super.onStop();
 
     }
 
     // validating email id
-    private boolean isValidEmail(String email) {
+    private boolean isValidEmail(String email)
+    {
 
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 

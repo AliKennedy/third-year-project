@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 public class SignUpScreenTest
 {
 
+    // To test if the activity is displayed correctly
     @Test
     public void testIfActivitydisplayed()
     {
@@ -51,6 +52,7 @@ public class SignUpScreenTest
         onView(withId(R.id.buttonSignUpLayout)).check(matches(isDisplayed()));
     }
 
+    // To test if the Edit Texts work
     @Test
     public void testIfEditTextsWork()
     {
@@ -76,6 +78,7 @@ public class SignUpScreenTest
         //onView(withId(R.id.confirmPassword)).perform(ViewActions.typeText(pass)).perform(closeSoftKeyboard());
     }
 
+    // To test if the buttons are clickable
     @Test
     public void testIfButtonClicksAndIsDisplayed()
     {
@@ -86,6 +89,7 @@ public class SignUpScreenTest
         onView(withId(R.id.buttonSignUp)).check(matches(isClickable()));
     }
 
+    // To test if all text that is displayed is displayed correctly
     @Test
     public void testIfTextIsCorrect()
     {

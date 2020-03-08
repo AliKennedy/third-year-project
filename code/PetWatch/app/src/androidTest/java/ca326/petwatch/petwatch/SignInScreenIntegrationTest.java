@@ -36,6 +36,7 @@ public class SignInScreenIntegrationTest
 
     }
 
+    // To test if the database is integrated to the sign in screen correctly
     @Test
     public void testSignIn() throws Exception
     {
