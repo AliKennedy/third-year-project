@@ -1,3 +1,4 @@
+// The F() macro was obtained from https://arduino.stackexchange.com/questions/19330/store-string-using-f-macro on Feb 28th 2020
 class __FlashStringHelper;
 #define F(string_literal) (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))
 
